@@ -8,6 +8,7 @@ $factory->define(App\Orden::class, function (Faker $faker) {
     return [
         'id' => $id->id,
         'cliente' => App\Cliente::all()->random()->id,
+        'persona_entrega' => array_random(['', $faker->name]),
         'empleado_recibe' => App\User::all()->random()->id,
         'estado' => $estado,
         'servicio' => App\Servicio::all()->random()->id,
