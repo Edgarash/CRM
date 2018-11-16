@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sucursal extends Model
 {
-    protected $table = "sucursal";
+    protected $table = "sucursales";
     //
 }

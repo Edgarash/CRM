@@ -17,11 +17,9 @@ class CreateFoliosTable extends Migration
             $table->increments('id');
             $table->integer('sucursal')->unsigned();
             $table->foreign('sucursal')->references('id')->on('sucursales');
-            $table->integer('date')->unsigned();
             $table->integer('folio')->unsigned();
             $table->unique([
                 'sucursal',
-                'date',
                 'folio',
             ]);
             $table->timestamps();

@@ -33,7 +33,7 @@ class CreateOrdenesTable extends Migration
 
             $table->integer('empleado_repara')->unsigned()->nullable();
             $table->foreign('empleado_repara')->references('id')->on('users');
-
+            
             $table->integer('empleado_entrega')->unsigned()->nullable();
             $table->foreign('empleado_entrega')->references('id')->on('users');
 

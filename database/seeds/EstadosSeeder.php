@@ -12,6 +12,32 @@ class EstadosSeeder extends Seeder
      */
     public function run()
     {
+        
+        Estado::create([
+            'Estado' => 'Sin Revisión'
+        ]);
+        
+        Estado::create([
+            'Estado' => 'Banco'
+        ]);
+        
+        Estado::create([
+            'Estado' => 'Por Autorizar'
+        ]);
+        
+        Estado::create([
+            'Estado' => 'Partes'
+        ]);
+        
+        Estado::create([
+            'Estado' => 'Terminado'
+        ]);
+        
+        Estado::create([
+            'Estado' => 'Entregado'
+        ]);
+
+        /*
         Estado::create([
             'Estado' => 'Recibido'
         ]);
@@ -27,5 +53,6 @@ class EstadosSeeder extends Seeder
         Estado::create([
             'Estado' => 'Entregado'
         ]);
+        */
     }
 }
