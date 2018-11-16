@@ -11,6 +11,12 @@ class OrdenesSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Orden::class, 300)->create();
+        $times = 300;
+        $this->command->getOutput()->progressStart($times);
+        for ($i=0; $i < $times; $i++) {
+            factory(App\Orden::class)->create();
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }

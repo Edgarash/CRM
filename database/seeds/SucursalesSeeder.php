@@ -10,7 +10,12 @@ class SucursalesSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        factory(App\Sucursal::class, 5)->create();
+    {$times = 10;
+        $this->command->getOutput()->progressStart($times);
+        for ($i=0; $i < $times; $i++) {
+            factory(App\Sucursal::class)->create();
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }

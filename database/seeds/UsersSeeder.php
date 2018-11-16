@@ -10,7 +10,12 @@ class UsersSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        factory(App\User::class, 10)->create();
+    {$times = 50;
+        $this->command->getOutput()->progressStart($times);
+        for ($i=0; $i < $times; $i++) {
+            factory(App\User::class)->create();
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }
