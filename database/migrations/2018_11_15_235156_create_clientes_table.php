@@ -21,11 +21,12 @@ class CreateClientesTable extends Migration
             $table->string('password');
             $table->string('telefono', 10);
             $table->string('RFC', 13);
-            //$table->string('estado');
             $table->string('ciudad');
             $table->string('colonia');
+            $table->string('cp');
             $table->string('calle');
             $table->string('referencia')->nullable();
+            $table->date('fecha_nacimiento');
             $table->boolean('activo')->default(1);
             $table->timestamps();
         });
