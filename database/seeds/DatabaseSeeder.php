@@ -9,11 +9,21 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    public static $sucursales = 2;
+    public static $empleados = 10;
+    public static $users = 10;
+    public static $clientes = 10;
+    public static $ordenes = 10;
+    public static $equipos = 3;
+
     public function run()
     {
         $this->truncateTables([
             'sucursales',
             'estados',
+            'equipos',
+            'empleados',
             'users',
             'folios',
             'clientes',
@@ -22,8 +32,10 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(SucursalesSeeder::class);
         $this->call(EstadosSeeder::class);
-        $this->call(UsersSeeder::class);
+        $this->call(EmpleadosSeeder::class);
+        $this->call(MarcasSeeder::class);
         $this->call(ClientesSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(ServiciosSeeder::class);
         $this->call(OrdenesSeeder::class);
     }

@@ -1,8 +1,6 @@
 @extends('layouts.dashboard')
-@section('title', 'Home')
-@section('page_heading','Blank')
+@section('title', 'Inicio')
+@section('page_heading','Bienvenido a Microsistemas Californianos')
 @section('section')
-           
-           
-            
+
 @stop

@@ -17,12 +17,11 @@ class ServiciosSeeder extends Seeder
         ]);
 
         Servicio::create([
-            'servicio' => 'Mantenimiento'
+            'servicio' => 'Mantenimiento Preventivo'
         ]);
 
         Servicio::create([
-            'servicio' => 'Garantía'
+            'servicio' => 'Mantenimiento Correctivo'
         ]);
-        //
     }
 }
