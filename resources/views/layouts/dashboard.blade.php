@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('home') }}"><img src="images/logo2.png" alt="Microsistemas" srcset=""
+            <a class="navbar-brand" href="{{ route('home') }}"><img src="/images/logo2.png" alt="Microsistemas" srcset=""
                     style="width:220px;height:40px;top:-8px;position:relative"></a>
         </div>
         <!-- /.navbar-header -->

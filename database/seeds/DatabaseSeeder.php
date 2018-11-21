@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->truncateTables([
             'sucursales',
+            'fallas',
             'estados',
             'equipos',
             'empleados',
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'ordenes',
         ]);
         $this->call(SucursalesSeeder::class);
+        $this->call(FallasSeeder::class);
         $this->call(EstadosSeeder::class);
         $this->call(EmpleadosSeeder::class);
         $this->call(MarcasSeeder::class);

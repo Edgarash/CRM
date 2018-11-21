@@ -32,7 +32,7 @@ Route::get('Reportes/Orden/{id}', 'ReportesController@showOrden');
 
 //Edgar Cisneros
 
-
+Route::get('Registrar/Falla', 'RegisterController@nuevaFalla');
 
 //Rutas de la plantilla
 
