@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Equipo;
 
-class ClientesSeeder extends Seeder
+class EmpleadosSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,15 +11,10 @@ class ClientesSeeder extends Seeder
      */
     public function run()
     {
-        $times = DatabaseSeeder::$clientes;
+        $times = DatabaseSeeder::$empleados;
         $this->command->getOutput()->progressStart($times);
         for ($i=0; $i < $times; $i++) {
-            $cliente = factory(App\Cliente::class)->create();
-            for ($j=0; $j < DatabaseSeeder::$equipos; $j++) {     
-                factory(Equipo::class)->create([
-                    'cliente' => $cliente->id
-                ]);
-            }
+            factory(App\Empleado::class)->create();
             $this->command->getOutput()->progressAdvance();
         }
         $this->command->getOutput()->progressFinish();
