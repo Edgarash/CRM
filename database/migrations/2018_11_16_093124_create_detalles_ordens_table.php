@@ -29,12 +29,14 @@ class CreateDetallesOrdensTable extends Migration
             $table->datetime('fecha_terminado')->nullable();
 
             $table->integer('empleado_repara')->unsigned()->nullable();
-            $table->foreign('empleado_repara')->references('id')->on('users');
+            $table->foreign('empleado_repara')->references('id')->on('empleados');
 
             $table->datetime('fecha_entrega')->nullable();
             
             $table->integer('empleado_entrega')->unsigned()->nullable();
-            $table->foreign('empleado_entrega')->references('id')->on('users');
+            $table->foreign('empleado_entrega')->references('id')->on('empleados');
+
+            $table->boolean('garantia')->default(0);
 
             $table->timestamps();
         });
