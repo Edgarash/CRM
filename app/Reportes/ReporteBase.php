@@ -20,7 +20,7 @@ class ReporteBase extends Fpdf {
         // Tipo de letra
         $this->SetFont('Arial', '', 12);
         // Salto de línea
-        $this->Ln(-2.5);
+        $this->Ln(-2);
         // Mover a la derecha
         $this->Cell(70, 0, '', $border);
         // Nombre de la Empresa
@@ -36,11 +36,11 @@ class ReporteBase extends Fpdf {
     function setTitulo($titulo = 'Reporte') {
         $border = 0;
         // Posición inicial
-        $this->setY(20);
+        $this->setY(18);
         // Fuente
         $this->SetFont('Century Gothic', '', 20);
         // Rectangulo sombra
-        $this->Rect(11, 21, 190, 12, 'F');
+        $this->Rect(11, 19, 190, 12, 'F');
         // Color de Relleno
         $this->SetFillColor(217, 217, 217);
         // Color de Fuente
@@ -50,7 +50,7 @@ class ReporteBase extends Fpdf {
         // Regresar el color de fuente a negro
         $this->SetTextColor(0);
         // Nueva Linea
-        $this->Ln(15);
+        $this->Ln(17);
     }
 
     function Footer() {
