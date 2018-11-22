@@ -12,47 +12,20 @@ class EstadosSeeder extends Seeder
      */
     public function run()
     {
-        
-        Estado::create([
-            'Estado' => 'Sin Revisión'
-        ]);
-        
-        Estado::create([
-            'Estado' => 'Banco'
-        ]);
-        
-        Estado::create([
-            'Estado' => 'Por Autorizar'
-        ]);
-        
-        Estado::create([
-            'Estado' => 'Partes'
-        ]);
-        
-        Estado::create([
-            'Estado' => 'Terminado'
-        ]);
-        
-        Estado::create([
-            'Estado' => 'Entregado'
-        ]);
-
-        /*
-        Estado::create([
-            'Estado' => 'Recibido'
-        ]);
-        Estado::create([
-            'Estado' => 'En Revisión'
-        ]);
-        Estado::create([
-            'Estado' => 'En Reparación'
-        ]);
-        Estado::create([
-            'Estado' => 'Reparado'
-        ]);
-        Estado::create([
-            'Estado' => 'Entregado'
-        ]);
-        */
+        $Array = [
+            'Sin Revisión',
+            'Banco',
+            'Por Autorizar',
+            'Partes',
+            'Terminado',
+            'Entregado',
+        ];
+        $times = count($Array);
+        $this->command->getOutput()->progressStart($times);
+        foreach ($Array as $Item) {
+            Estado::create(['Estado' => $Item]);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }

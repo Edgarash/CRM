@@ -12,12 +12,22 @@ class MarcasSeeder extends Seeder
      */
     public function run()
     {
-        Marca::create(['nombre' => 'DELL']);
-        Marca::create(['nombre' => 'HP']);
-        Marca::create(['nombre' => 'ASUS']);
-        Marca::create(['nombre' => 'SAMSUNG']);
-        Marca::create(['nombre' => 'ALIENWARE']);
-        Marca::create(['nombre' => 'SONY']);
-        Marca::create(['nombre' => 'VAIO']);
+        $Array = [
+            'DELL',
+            'HP',
+            'ASUS',
+            'SAMSUNG',
+            'ALIENWARE',
+            'SONY',
+            'VAIO',
+            'ACER'
+        ];
+        $times = count($Array);
+        $this->command->getOutput()->progressStart($times);
+        foreach ($Array as $Item) {
+            Marca::create(['nombre' => $Item]);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }

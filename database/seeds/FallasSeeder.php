@@ -12,11 +12,20 @@ class FallasSeeder extends Seeder
      */
     public function run()
     {
-        Falla::create(['nombre' => 'No Prende']);
-        Falla::create(['nombre' => 'Teclado']);
-        Falla::create(['nombre' => 'Pantalla Táctil']);
-        Falla::create(['nombre' => 'Puerto USB']);
-        Falla::create(['nombre' => 'Puerto HDMI']);
-        Falla::create(['nombre' => 'Puerto VGA']);
+        $Array = [
+            'No Prende',
+            'Teclado',
+            'Pantalla Táctil',
+            'Puerto USB',
+            'Puerto HDMI',
+            'Puerto VGA'
+        ];
+        $times = count($Array);
+        $this->command->getOutput()->progressStart($times);
+        foreach ($Array as $Item) {
+            Falla::create(['nombre' => $Item]);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }
