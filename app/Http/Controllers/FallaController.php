@@ -8,7 +8,7 @@ use App\Falla;
 class FallaController extends Controller
 {
     function index() {
-        $fallas = Falla::paginate(10);
+        $fallas = Falla::paginate(5);
         return view('fallas.index', compact('fallas'));
     }
 

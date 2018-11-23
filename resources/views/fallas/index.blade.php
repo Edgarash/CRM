@@ -6,7 +6,7 @@
 {!! csrf_field() !!}
 <div class="row space-bottom">
     <div class="col-sm-12">
-        <button class="btn btn-primary pull-right">Nueva Falla</button>
+
     </div>
 </div>
 <div class="row">
@@ -25,10 +25,10 @@
                     <td class="text-center align-middle">{{$falla->id}}</td>
                     <td class="align-middle">{{$falla->nombre}}</td>
                     <td class="text-center">
-                        <a data-toggle="tooltip" title="Modificar nombre de: {{$falla->nombre}}"
-                            data-placement="left"><i class="fa fa-2x fa-cog "></i></a>
-                        <a data-toggle="tooltip" title="Eliminar falla: {{$falla->nombre}}"
-                            data-placement="left"><i class="fa fa-2x fa-trash"></i></a>
+                        <a data-toggle="tooltip" title="Modificar nombre de: {{$falla->nombre}}" data-placement="left"><i
+                                class="fa fa-2x fa-cog "></i></a>
+                        <a data-toggle="tooltip" title="Eliminar falla: {{$falla->nombre}}" data-placement="left"><i
+                                class="fa fa-2x fa-trash"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -38,6 +38,7 @@
 </div>
 <div class="text-center">
     {!! $fallas->render() !!}
+    <button class="btn btn-primary pull-right" style="margin-top: 20px">Nueva Falla</button>
 </div>
 @else
 <h1>No hay fallas registradas</h1>
