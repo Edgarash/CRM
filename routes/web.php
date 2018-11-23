@@ -41,7 +41,7 @@ Route::get('/Fallas/Registrar', 'FallaController@nuevaFalla')
 Route::get('/Forms/Registrar/Falla', 'FallaController@formRegistrarFalla')
 	->name('formRegistrarFalla');
 
-Route::post('/Fallas/Accion', 'FallaController@accion');
+Route::delete('/Fallas/{falla}', 'FallaController@action');
 	
 
 //Rutas de la plantilla

@@ -8,7 +8,8 @@ use App\Falla;
 class FallaController extends Controller
 {
     function index() {
-        return view('fallas.index');
+        $fallas = Falla::paginate(10);
+        return view('fallas.index', compact('fallas'));
     }
 
     function nuevaFalla() {
@@ -19,10 +20,17 @@ class FallaController extends Controller
         return view('form.registrar.falla');
     }
 
-    function accion() {
-        $data = request()->all();
-        // if ($data['type'] == 'D') {
-            return json_encode($data);
-        // }
+    function action(Falla $falla) {
+        if ($falla->delete()) {
+            return json_encode([
+                'title' => 'SUCCESS',
+                'message' => 'Borrado con éxito de la base de datos'
+            ]);
+        } else {
+            return json_encode([
+                'title' => 'ERROR',
+                'message' => 'No se pudo borrar de la base de datos'
+            ]);
+        }
     }
 }

@@ -2,6 +2,8 @@
 @section('page_heading', 'Fallas')
 
 @section('section')
+@if (App\Falla::count() > 0)
+{!! csrf_field() !!}
 <div class="row space-bottom">
     <div class="col-sm-12">
         <button class="btn btn-primary pull-right">Nueva Falla</button>
@@ -18,8 +20,8 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (App\Falla::all() as $falla)
-                <tr id="Falla-{{$falla->id}}">
+                @foreach ($fallas as $falla)
+                <tr id="/Fallas/{{$falla->id}}">
                     <td class="text-center align-middle">{{$falla->id}}</td>
                     <td class="align-middle">{{$falla->nombre}}</td>
                     <td class="text-center">
@@ -34,5 +36,11 @@
         </table>
     </div>
 </div>
+<div class="text-center">
+    {!! $fallas->render() !!}
+</div>
+@else
+<h1>No hay fallas registradas</h1>
+@endif
 <script src="{{asset('assets/scripts/CRM/fallas.js')}}"></script>
 @endsection
