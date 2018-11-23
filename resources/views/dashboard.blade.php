@@ -227,9 +227,10 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                    <a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 
-                        Cerrar Sesion
-                    </a>
+                        <form method="POST" action="{{ route('logout')}}">
+                            {{csrf_field()}}
+                            <button class="btn btn-primary btn-block"> Cerrar Session</button>
+                        </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
