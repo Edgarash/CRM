@@ -24,7 +24,10 @@ Route::get('/', function () {
 
 
 //Maribel Montes
-Route::get('Reportes/Orden/{id}', 'ReportesController@showOrden');
+Route::get('Reportes/Orden/{id}', 'ReportesController@showOrden')
+    ->name('ReporteOrden');
+Route::get('/Ordenes','ReportesController@MostrarOrdenes' )
+    ->name('Ordenes');
 
 //Adalberto Palafox
 

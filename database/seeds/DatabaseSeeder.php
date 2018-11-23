@@ -13,8 +13,8 @@ class DatabaseSeeder extends Seeder
     public static $sucursales = 2;
     public static $empleados = 10;
     public static $users = 10;
-    public static $clientes = 10;
-    public static $ordenes = 10;
+    public static $clientes = 20;
+    public static $ordenes = 20;
     public static $equipos = 3;
 
     public function run()
@@ -55,7 +55,7 @@ class DatabaseSeeder extends Seeder
     public static function createFolios($times = 1) {
         $list = [];
         $x = App\Folio::all()->last()->id;
-        for ($i=0; $i < $times; $i++) { 
+        for ($i=0; $i < $times; $i++) {
             do {
                 $suc = App\Sucursal::all()->random();
                 $sucursal = $suc->id;

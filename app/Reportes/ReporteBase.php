@@ -15,6 +15,7 @@ class ReporteBase extends Fpdf {
         $this->AddFont('Roboto', 'B', 'Roboto-Bold.php');
         $this->AddFont('Century Gothic', '', 'Century Gothic.php');
         $this->AddFont('Century Gothic', 'B', 'GOTHICB.php');
+        $this->AddFont('Century Gothic', 'I', 'GOTHICI.php');
         // LOGO
         $this->image('images/logo2.png', 10, 5, 75);
         // Tipo de letra

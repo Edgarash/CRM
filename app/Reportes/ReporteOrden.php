@@ -215,7 +215,7 @@ class ReporteOrden extends ReporteBase {
         // Posición a 1.5cm del final
         $this->setY(-15);
         // Fuente
-        $this->SetFont('Arial', 'I', 12);
+        $this->SetFont('Century Gothic', 'I', 12);
         // Número de Página
         $this->Cell(0, 10, utf8_decode('Equipo '.$this->PageNo()).'/{nb}', $border, 0, 'C');
     }
