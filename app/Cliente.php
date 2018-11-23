@@ -17,6 +17,6 @@ class Cliente extends Model
     }
 
     public function getDomicilio() {
-        return $this->calle.', '.$this->colonia.', '.$this->ciudad;
+        return $this->calle.', '.$this->colonia.', '.$this->ciudad.', '.$this->cp;
     }
 }

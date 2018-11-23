@@ -30,14 +30,18 @@ class Orden extends Model
     }
 
     public function getEmpleadoRecibe() {
-        return $this->belongsTo(User::class, 'empleado_recibe');
+        return $this->belongsTo(Empleado::class, 'empleado_recibe');
     }
 
     public function getEmpleadoRepara() {
-        return $this->belongsTo(User::class, 'empleado_repara');
+        return $this->belongsTo(Empleado::class, 'empleado_repara');
     }
 
     public function getEmpleadoEntrega() {
-        return $this->belongsTo(User::class, 'empleado_entrega');
+        return $this->belongsTo(Empleado::class, 'empleado_entrega');
+    }
+
+    public function detalles() {
+        return $this->hasMany(DetallesOrden::class, 'id');
     }
 }

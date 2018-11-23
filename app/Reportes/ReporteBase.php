@@ -36,11 +36,11 @@ class ReporteBase extends Fpdf {
     function setTitulo($titulo = 'Reporte') {
         $border = 0;
         // Posición inicial
-        $this->setY(18);
+        $this->setY(23);
         // Fuente
         $this->SetFont('Century Gothic', '', 20);
         // Rectangulo sombra
-        $this->Rect(11, 19, 190, 12, 'F');
+        $this->Rect(11, 24, 190, 12, 'F');
         // Color de Relleno
         $this->SetFillColor(217, 217, 217);
         // Color de Fuente
@@ -63,7 +63,7 @@ class ReporteBase extends Fpdf {
         $this->Cell(0, 10, utf8_decode('Página '.$this->PageNo()).'/{nb}', $border, 0, 'C');
     }
 
-    
+
     function show() {
         $this->AliasNbPages();
         $this->SetTitle(utf8_decode($this->nombre));
