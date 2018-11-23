@@ -1,3 +1,5 @@
+
+
 @extends('layouts.plane')
 
 @section('body')
@@ -221,12 +223,17 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a class="fa fa-user " >
+                        {{ Auth::user()->email }} <span class="caret"></span></a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="{{ url ('login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -252,18 +259,7 @@
                     <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                         <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Ordenes<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Panels and Collapsibles</a>
-                            </li>
-                            <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('buttons' ) }}">Buttons</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                   
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -290,31 +286,29 @@
                     </li>
                     
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
+                                    <a class = "fa fa-sitemap" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+                                   
+                                </li>
+                                
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
+                                        <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-third-level -->
+                                
+                                <li>
+                                <a class = "fa fa-history" href="#"> Historial de Modificaciones</a>
+                                </li>
+                                <li>
+                                <a class = "fa fa-star" href="#"> Calificar Servicio</a>
+                                </li>
+                                <li>
+                                <a class = "fa fa-admin" href="#">Autorización de cambios en el presupuesto/cotización</a>
+                                </li>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -339,5 +333,8 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </div>
 @stop

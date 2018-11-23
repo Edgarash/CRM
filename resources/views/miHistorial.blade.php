@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Principal')
-@section('page_heading','SIN ENTRADAS')
+@section('page_heading','Te mostramos tu historial')
 @section('section')
            
            
