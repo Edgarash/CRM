@@ -265,7 +265,7 @@
                         <a href="#"><i class="fa fa-folder fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Órdenes de reparación</a>
+                                <a href="{{ route('Ordenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de reparación</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -279,7 +279,7 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-                    
+
                     {{-- <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">

@@ -16,4 +16,10 @@ class ReportesController extends Controller
             return 'No existe';
         }
     }
+
+    function MostrarOrdenes()
+    {
+        $ordenes = Orden::paginate(5);
+        return view('tordenes', compact('ordenes'));
+    }
 }

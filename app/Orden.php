@@ -46,7 +46,4 @@ class Orden extends Model
         return $this->hasMany(DetallesOrden::class, 'id');
     }
 
-    public function detalles() {
-        return $this->hasMany(DetallesOrden::class, 'id');
-    }
 }
