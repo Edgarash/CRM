@@ -16,7 +16,7 @@
                 <tr>
                     <th class="col-xs-1 text-center">ID</th>
                     <th class="col-xs-10">Nombre</th>
-                    <th class="col-xs-1">Opciones</th>
+                    <th class="col-xs-1 text-center">Opciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,9 +25,9 @@
                     <td class="text-center align-middle">{{$falla->id}}</td>
                     <td class="align-middle">{{$falla->nombre}}</td>
                     <td class="text-center">
-                        <a style="color:#000000" data-toggle="tooltip" title="Modificar nombre de: {{$falla->nombre}}"
+                        <a data-toggle="tooltip" title="Modificar nombre de: {{$falla->nombre}}"
                             data-placement="left"><i class="fa fa-2x fa-cog "></i></a>
-                        <a style="color:#DD0000" data-toggle="tooltip" title="Eliminar falla: {{$falla->nombre}}"
+                        <a data-toggle="tooltip" title="Eliminar falla: {{$falla->nombre}}"
                             data-placement="left"><i class="fa fa-2x fa-trash"></i></a>
                     </td>
                 </tr>

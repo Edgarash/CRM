@@ -264,8 +264,9 @@
                     <li>
                         <a href="#"><i class="fa fa-folder fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ route('Ordenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de reparación</a>
+                            <li {{ (Request::is(route('Ordenes')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Ordenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de
+                                    reparación</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -273,7 +274,7 @@
                     <li>
                         <a href="#"><i class="fa fa-table fa-fw"></i> Catálogos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                            <li {{ (Request::is(route('Fallas')) ? 'class="active"' : '') }}>
                                 <a href="{{ route('Fallas') }}">Fallas</a>
                             </li>
                         </ul>
@@ -324,7 +325,7 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
-            @yield('section')
+        @yield('section')
         <!-- /#page-wrapper -->
     </div>
 </div>
