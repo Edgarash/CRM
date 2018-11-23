@@ -227,9 +227,8 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                    <a href="{{ route ('logout') }}">
-                        <i class="fa fa-sign-out fa-fw"></i> 
-                        Logout
+                    <a href="{{ route('logout') }}"><i class="fa fa-sign-out fa-fw"></i> 
+                        Cerrar Sesion
                     </a>
                     </li>
                 </ul>

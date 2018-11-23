@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+
 use Auth;
 use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->middleware('guest',['only'=> 'showLoginForm']);
     }
 
@@ -30,7 +32,8 @@ class LoginController extends Controller
         ->withInput(request(['email']));
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return redirect('/');
     }
