@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Falla;
 
-class FallaController extends Controller
+class FallasController extends Controller
 {
     function index() {
         $fallas = Falla::paginate(5);

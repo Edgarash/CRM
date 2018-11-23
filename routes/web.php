@@ -24,10 +24,11 @@ Route::get('/', function () {
 
 
 //Maribel Montes
-Route::get('Reportes/Orden/{id}', 'ReportesController@showOrden')
-    ->name('ReporteOrden');
-Route::get('/Ordenes','ReportesController@MostrarOrdenes' )
-    ->name('Ordenes');
+Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')
+	->name('ReporteOrden');
+	
+Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
+    ->name('ReporteOrdenes');
 
 //Adalberto Palafox
 
@@ -35,16 +36,19 @@ Route::get('/Ordenes','ReportesController@MostrarOrdenes' )
 
 //Edgar Cisneros
 
-Route::get('/Fallas', 'FallaController@index')
+Route::get('/Ordenes', 'OrdenesController@index')
+	->name('Ordenes');
+
+Route::get('/Fallas', 'FallasController@index')
 	->name('Fallas');
 
-Route::get('/Fallas/Registrar', 'FallaController@nuevaFalla')
+Route::get('/Fallas/Registrar', 'FallasController@nuevaFalla')
 	->name('registrarFalla');
 
-Route::get('/Forms/Registrar/Falla', 'FallaController@formRegistrarFalla')
+Route::get('/Forms/Registrar/Falla', 'FallasController@formRegistrarFalla')
 	->name('formRegistrarFalla');
 
-Route::delete('/Fallas/{falla}', 'FallaController@action');
+Route::delete('/Fallas/{falla}', 'FallasController@action');
 	
 
 //Rutas de la plantilla

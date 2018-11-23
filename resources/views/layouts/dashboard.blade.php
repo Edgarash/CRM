@@ -258,14 +258,17 @@
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
                                 <a href="{{ url ('panels') }}">Crear Orden</a>
                             </li>
+                            <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
+                                <a href="{{ url (route('Ordenes') ) }}">Ver Ordenes</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-folder fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {{ (Request::is(route('Ordenes')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Ordenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de
+                            <li {{ (Request::is(route('ReporteOrdenes')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('ReporteOrdenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de
                                     reparación</a>
                             </li>
                         </ul>
