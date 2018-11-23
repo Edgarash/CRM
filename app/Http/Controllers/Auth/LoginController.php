@@ -30,5 +30,8 @@ class LoginController extends Controller
         ->withInput(request(['email']));
     }
 
-
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }

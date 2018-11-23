@@ -10,6 +10,7 @@ Route::get('/','Auth\LoginController@showLoginForm');
 //Manuel Villanueva
 Route::get('dashboard','DashboardController@index')->name('dashboard');
 Route::post('login','Auth\LoginController@login')->name('login');
+Route::get('logout','Auth\LoginController@logout')->name('logout');
 
 //Maribel Montes
 Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')
