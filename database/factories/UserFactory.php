@@ -1,6 +1,9 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Empleado;
+use App\Cliente;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,13 +17,19 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(App\User::class, function (Faker $faker) {
+    $empleado = rand(0,1);
+    do {
+        $ref = $empleado ? Empleado::all()->random() : Cliente::all()->random();
+    } while (User::where('email', $ref->email)->first() != null);
+    
     return [
-        'nombre' => $faker->firstName,
-        'apellidos' => $faker->lastName,
-        'email' => $faker->unique()->safeEmail,
-        'sucursal' => App\Sucursal::all()->random()->id,
+        'email' => $ref->email,
         'email_verified_at' => now(),
         'password' => bcrypt('contraseña'), // secret
         'remember_token' => str_random(10),
+        'empleado' => $empleado,
+        'admin' => $empleado ? rand(0,1) : 0,
+        'clientuser_id' => $ref->id,
+        'activo' => rand(0,1)
     ];
 });

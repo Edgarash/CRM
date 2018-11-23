@@ -9,11 +9,23 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
+
+    public static $sucursales = 2;
+    public static $empleados = 10;
+    public static $users = 10;
+    public static $clientes = 20;
+    public static $ordenes = 20;
+    public static $equipos = 3;
+
     public function run()
     {
         $this->truncateTables([
             'sucursales',
+            'detalles_ordenes',
+            'fallas',
             'estados',
+            'equipos',
+            'empleados',
             'users',
             'folios',
             'clientes',
@@ -21,9 +33,12 @@ class DatabaseSeeder extends Seeder
             'ordenes',
         ]);
         $this->call(SucursalesSeeder::class);
+        $this->call(FallasSeeder::class);
         $this->call(EstadosSeeder::class);
-        $this->call(UsersSeeder::class);
+        $this->call(EmpleadosSeeder::class);
+        $this->call(MarcasSeeder::class);
         $this->call(ClientesSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(ServiciosSeeder::class);
         $this->call(OrdenesSeeder::class);
     }
@@ -40,7 +55,7 @@ class DatabaseSeeder extends Seeder
     public static function createFolios($times = 1) {
         $list = [];
         $x = App\Folio::all()->last()->id;
-        for ($i=0; $i < $times; $i++) { 
+        for ($i=0; $i < $times; $i++) {
             do {
                 $suc = App\Sucursal::all()->random();
                 $sucursal = $suc->id;

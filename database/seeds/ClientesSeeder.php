@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Equipo;
 
 class ClientesSeeder extends Seeder
 {
@@ -11,10 +12,15 @@ class ClientesSeeder extends Seeder
      */
     public function run()
     {
-        $times = 50;
+        $times = DatabaseSeeder::$clientes;
         $this->command->getOutput()->progressStart($times);
         for ($i=0; $i < $times; $i++) {
-            factory(App\Cliente::class)->create();
+            $cliente = factory(App\Cliente::class)->create();
+            for ($j=0; $j < DatabaseSeeder::$equipos; $j++) {     
+                factory(Equipo::class)->create([
+                    'cliente' => $cliente->id
+                ]);
+            }
             $this->command->getOutput()->progressAdvance();
         }
         $this->command->getOutput()->progressFinish();

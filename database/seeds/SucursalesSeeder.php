@@ -10,7 +10,8 @@ class SucursalesSeeder extends Seeder
      * @return void
      */
     public function run()
-    {$times = 10;
+    {
+        $times = DatabaseSeeder::$sucursales;
         $this->command->getOutput()->progressStart($times);
         for ($i=0; $i < $times; $i++) {
             factory(App\Sucursal::class)->create();
