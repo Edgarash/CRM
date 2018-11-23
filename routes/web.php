@@ -1,37 +1,23 @@
 <?php
 
 
-Route::get('/', 'TestController@welcome');
 
-Route::get('/misOrdenes', 'TestController@ordenes');
-
-Route::get('/miHistorial', 'TestController@miHist');
-
-/*Route::get('/welcome', function (){
-    return view('welcome2');
-})->name('Incio');*/
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 //Manuel Gastelum
 
+Route::get('/', 'TestController@welcome');
 
+Route::get('/home', 'TestController@welcome');
 
 //Manuel Villanueva
-
 
 
 //Maribel Montes
 
 
-
 //Adalberto Palafox
 
 
-
 //Edgar Cisneros
-
 
 
 //Rutas de la plantilla

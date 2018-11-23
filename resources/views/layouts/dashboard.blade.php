@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('home') }}"><img src="images/logo2.png" alt="Microsistemas" srcset=""
+            <a class="navbar-brand" href="#"><img src="images/logo2.png" alt="Microsistemas" srcset=""
                     style="width:220px;height:40px;top:-8px;position:relative"></a>
         </div>
         <!-- /.navbar-header -->
@@ -223,13 +223,12 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a class="fa fa-user " >
-                        {{ Auth::user()->email }} <span class="caret"></span></a>
+                    <li><a class="fa fa-user " >Usuario<span class="caret"></span></a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                    <li><a class="dropdown-item" href="#"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesión') }}
@@ -333,8 +332,5 @@
         </div>
         <!-- /#page-wrapper -->
     </div>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-        @csrf
-    </form>
 </div>
 @stop
