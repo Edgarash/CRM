@@ -35,13 +35,13 @@ Route::get('Reportes/Orden/{id}', 'ReportesController@showOrden');
 Route::get('/Fallas', 'FallaController@index')
 	->name('Fallas');
 
-Route::get('/Falla/Registrar', 'FallaController@nuevaFalla')
+Route::get('/Fallas/Registrar', 'FallaController@nuevaFalla')
 	->name('registrarFalla');
 
 Route::get('/Forms/Registrar/Falla', 'FallaController@formRegistrarFalla')
 	->name('formRegistrarFalla');
 
-Route::post('/Falla/Accion', 'FallaController@accion');
+Route::post('/Fallas/Accion', 'FallaController@accion');
 	
 
 //Rutas de la plantilla

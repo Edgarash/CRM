@@ -12,17 +12,22 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+    {{-- Provide the CSRF_TOKEN --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 
     {{-- Estilos --}}
-    {{-- <link rel="stylesheet" href="{{ asset("assets/stylesheets/bootstrap.css") }}"> --}}
     <link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/jquery-confirm/jquery-confirm.min.css") }}" />
+    <link rel="stylesheet" href="{{ asset("assets/stylesheets/views.css") }}" />
     {{-- JQuery --}}
-    <script src="{{ asset('assets/scripts/jquery/3.3.1/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/scripts/jquery.min.js') }}"></script>
+    <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/jquery-confirm/jquery-confirm.min.js') }}"></script>
 </head>
 
 <body>
     @yield('body')
-    <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
 </body>
 
 </html>

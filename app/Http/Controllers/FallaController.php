@@ -21,7 +21,8 @@ class FallaController extends Controller
 
     function accion() {
         $data = request()->all();
-        $falla = Falla::create(['nombre' => $data['nombre']]);
-        
+        // if ($data['type'] == 'D') {
+            return json_encode($data);
+        // }
     }
 }
