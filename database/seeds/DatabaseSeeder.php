@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->truncateTables([
             'sucursales',
+            'detalles_ordenes',
             'fallas',
             'estados',
             'equipos',

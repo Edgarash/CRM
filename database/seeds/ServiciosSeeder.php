@@ -12,16 +12,17 @@ class ServiciosSeeder extends Seeder
      */
     public function run()
     {
-        Servicio::create([
-            'servicio' => 'Reparación'
-        ]);
-
-        Servicio::create([
-            'servicio' => 'Mantenimiento Preventivo'
-        ]);
-
-        Servicio::create([
-            'servicio' => 'Mantenimiento Correctivo'
-        ]);
+        $Array = [
+            'Reparación',
+            'Mantenimiento Preventivo',
+            'Mantenimiento Correctivo',
+        ];
+        $times = count($Array);
+        $this->command->getOutput()->progressStart($times);
+        foreach ($Array as $Item) {
+            Servicio::create(['servicio' => $Item]);
+            $this->command->getOutput()->progressAdvance();
+        }
+        $this->command->getOutput()->progressFinish();
     }
 }

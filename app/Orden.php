@@ -7,6 +7,7 @@ use App\Cliente;
 use App\User;
 use App\Estado;
 use App\Servicio;
+use App\DetallesOrden;
 
 class Orden extends Model
 {
@@ -39,6 +40,10 @@ class Orden extends Model
 
     public function getEmpleadoEntrega() {
         return $this->belongsTo(Empleado::class, 'empleado_entrega');
+    }
+
+    public function detalles() {
+        return $this->hasMany(DetallesOrden::class, 'id');
     }
 
     public function detalles() {

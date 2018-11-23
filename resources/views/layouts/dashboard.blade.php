@@ -18,7 +18,7 @@
         <!-- /.navbar-header -->
 
         <ul class="nav navbar-top-links navbar-right">
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
@@ -67,9 +67,9 @@
                     </li>
                 </ul>
                 <!-- /.dropdown-messages -->
-            </li>
+            </li> --}}
             <!-- /.dropdown -->
-            <li class="dropdown">
+            {{-- <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
@@ -154,7 +154,7 @@
                     </li>
                 </ul>
                 <!-- /.dropdown-tasks -->
-            </li>
+            </li> --}}
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -250,46 +250,37 @@
                         <!-- /input-group -->
                     </li>
                     <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                        <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Inicio</a>
+                        <a href="{{ url ('') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Ordenes<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-edit fa-fw"></i> Órdenes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Panels and Collapsibles</a>
-                            </li>
-                            <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('buttons' ) }}">Buttons</a>
+                                <a href="{{ url ('panels') }}">Crear Orden</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Reportes<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-folder fa-fw"></i> Reportes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Panels and Collapsibles</a>
-                            </li>
-                            <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('buttons' ) }}">Buttons</a>
+                                <a href="{{ url ('panels') }}">Órdenes de reparación</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> Catálogos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table fa-fw"></i> Catálogos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Panels and Collapsibles</a>
-                            </li>
-                            <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('buttons' ) }}">Buttons</a>
+                                <a href="{{ route('Fallas') }}">Fallas</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
                     
-                    <li>
+                    {{-- <li>
                         <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -318,7 +309,7 @@
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -333,10 +324,7 @@
             </div>
             <!-- /.col-lg-12 -->
         </div>
-        <div class="row">
             @yield('section')
-
-        </div>
         <!-- /#page-wrapper -->
     </div>
 </div>

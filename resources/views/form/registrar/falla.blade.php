@@ -1,8 +1,3 @@
-@extends('layouts.dashboard')
-@section('title', 'Registrar Falla')
-@section('page_heading', 'Registrar Falla')
-
-@section('section')
 <form method="POST" id="formnuevafalla">
     {{ csrf_field() }}
     <input type="hidden" name="R">
@@ -14,4 +9,3 @@
     </div>
 </form>
 <script src="{{asset('/assets/scripts/forms/registrar.falla.js')}}"></script>
-@endsection
