@@ -8,6 +8,10 @@ use App\Orden;
 
 class ReportesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     function showOrden($id) {
         if (Orden::find($id) != null) {
             $reporte = new ReporteOrden();

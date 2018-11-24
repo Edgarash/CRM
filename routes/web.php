@@ -1,10 +1,20 @@
 <?php
 
-
+Route::get('/', function (){
+    return view('auth/login');
+});
 
 //Manuel Gastelum
 
+Route::get('/welcome', 'TestController@welcome');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/misOrdenes', 'TestController@ordenes');
+
+Route::get('/miHistorial', 'TestController@miHist');
 
 //Manuel Villanueva
 
@@ -95,3 +105,5 @@ Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
+
+

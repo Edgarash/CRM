@@ -223,10 +223,13 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a class="fa fa-user " >Usuario<span class="caret"></span></a>
+                    <li><a a href="#" class="fa fa-user " > {{ Auth::user()->email }}</a>
+                    
                     </li>
+
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
+
                     <li class="divider"></li>
                     <li><a class="dropdown-item" href="#"
                                        onclick="event.preventDefault();
@@ -290,12 +293,12 @@
                         <!-- /.nav-second-level -->
                     </li>
 
-                    {{-- <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                     <li>
+                         <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
-                                    <a class = "fa fa-sitemap" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+                                    <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
                                    
                                 </li>
                                 
@@ -312,12 +315,12 @@
                                 <a class = "fa fa-star" href="#"> Calificar Servicio</a>
                                 </li>
                                 <li>
-                                <a class = "fa fa-admin" href="#">Autorización de cambios en el presupuesto/cotización</a>
+                                <a class = "fa fa-thumbs-o-up" href="#"> Autorización de cambios en el presupuesto/cotización</a>
                                 </li>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
-                    </li> --}}
+                    </li> 
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -335,5 +338,8 @@
         @yield('section')
         <!-- /#page-wrapper -->
     </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </div>
 @stop
