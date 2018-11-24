@@ -28,7 +28,7 @@ class OrdenesSeeder extends Seeder
                 'cliente' => App\Cliente::all()->random()->id,
                 'persona_entrega' => array_random(['', $faker->name]),
                 'fecha_ingreso' => $faker->dateTime(),
-                'empleado_recibe' => App\User::all()->random()->id,
+                'empleado_recibe' => App\Empleado::all()->random()->id,
             ]);
 
             factory(DetallesOrden::class)->create([
