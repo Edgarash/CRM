@@ -4,11 +4,6 @@
 @section('section')
 @if (App\Falla::count() > 0)
 {!! csrf_field() !!}
-<div class="row space-bottom">
-    <div class="col-sm-12">
-
-    </div>
-</div>
 <div class="row">
     <div class="col-sm-12">
         <table class="table table-condensed table-striped table-bordered table-hover">

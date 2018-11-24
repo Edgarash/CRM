@@ -45,4 +45,8 @@ class Orden extends Model
     public function detalles() {
         return $this->hasMany(DetallesOrden::class, 'id');
     }
+
+    public function getFechaAttribute() {
+        return date_format(date_create($this->fecha_ingreso), 'd/M/Y h:i:s A');
+    }
 }

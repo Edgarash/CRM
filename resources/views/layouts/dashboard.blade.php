@@ -1,3 +1,5 @@
+
+
 @extends('layouts.plane')
 
 @section('body')
@@ -221,12 +223,19 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a a href="#" class="fa fa-user " > {{ Auth::user()->email }}</a>
+                    
                     </li>
+
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
+
                     <li class="divider"></li>
-                    <li><a href="{{ url ('login') }}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <li><a class="dropdown-item" href="#"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Cerrar Sesión') }}
+                                    </a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -284,36 +293,34 @@
                         <!-- /.nav-second-level -->
                     </li>
 
-                    {{-- <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                     <li>
+                         <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
+                                <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
+                                    <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+                                   
+                                </li>
+                                
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
+                                        <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-third-level -->
+                                
+                                <li>
+                                <a class = "fa fa-history" href="#"> Historial de Modificaciones</a>
+                                </li>
+                                <li>
+                                <a class = "fa fa-star" href="#"> Calificar Servicio</a>
+                                </li>
+                                <li>
+                                <a class = "fa fa-thumbs-o-up" href="#"> Autorización de cambios en el presupuesto/cotización</a>
+                                </li>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
-                    </li> --}}
+                    </li> 
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -331,5 +338,8 @@
         @yield('section')
         <!-- /#page-wrapper -->
     </div>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+    </form>
 </div>
 @stop

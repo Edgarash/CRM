@@ -1,11 +1,21 @@
 <?php
 
+Route::get('/', function (){
+    return view('auth/login');
+});
 
 
+Route::get('/welcome', 'TestController@welcome');
 
-//Manuel Gastelum
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/misOrdenes', 'TestController@ordenes');
+
+Route::get('/miHistorial', 'TestController@miHist');
+
+//Manuel Villanueva
 
 //Manuel Villanueva
 Route::get('/','Auth\LoginController@showLoginForm');
@@ -21,7 +31,6 @@ Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
     ->name('ReporteOrdenes');
 
 //Adalberto Palafox
-
 
 
 //Edgar Cisneros
@@ -94,12 +103,11 @@ Route::get('/blank', function()
 	return View::make('blank');
 });
 
-Route::get('/login', function()
-{
-	return View::make('login');
-});
+
 
 Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
+
+
