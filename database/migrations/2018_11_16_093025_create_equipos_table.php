@@ -17,9 +17,11 @@ class CreateEquiposTable extends Migration
             $table->increments('id');
             $table->integer('cliente')->unsigned();
             $table->foreign('cliente')->references('id')->on('clientes');
-            $table->string('marca');
+            $table->integer('marca')->unsigned();
+            $table->foreign('marca')->references('id')->on('marcas');
             $table->string('modelo');
             $table->string('serie');
+            $table->date('garantia')->nullable();
             $table->timestamps();
         });
     }

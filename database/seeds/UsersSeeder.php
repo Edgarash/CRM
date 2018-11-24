@@ -11,7 +11,7 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        $times = 50;
+        $times = DatabaseSeeder::$users;
         $this->command->getOutput()->progressStart($times);
         for ($i=0; $i < $times; $i++) {
             factory(App\User::class)->create();

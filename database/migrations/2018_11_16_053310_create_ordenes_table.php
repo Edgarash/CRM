@@ -25,7 +25,7 @@ class CreateOrdenesTable extends Migration
             $table->dateTime('fecha_ingreso')->default(date('Y-m-d H:i:s'));
 
             $table->integer('empleado_recibe')->unsigned();
-            $table->foreign('empleado_recibe')->references('id')->on('users');
+            $table->foreign('empleado_recibe')->references('id')->on('empleados');
 
             $table->timestamps();
         });

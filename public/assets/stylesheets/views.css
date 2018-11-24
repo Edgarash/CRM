@@ -1,0 +1,29 @@
+.align-middle {
+  vertical-align: middle !important;
+}
+
+a > i.fa-cog {
+  color: #333;
+}
+
+a > i.fa-cog:hover {
+  color: #000;
+}
+
+a > i.fa-trash {
+  color: #D00;
+}
+
+a > i.fa-trash:hover {
+  color: #B00;
+}
+
+a > i.fa-cog:hover,
+a > i.fa-trash:hover {
+  cursor: pointer;
+}
+
+.space-bottom {
+  margin-bottom: 10px;
+}
+

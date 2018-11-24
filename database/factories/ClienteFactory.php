@@ -13,8 +13,10 @@ $factory->define(App\Cliente::class, function (Faker $faker) {
         //'estado' => $faker->sentence(2),
         'ciudad' => $faker->city,
         'colonia' => $faker->sentence(2),
+        'cp' => rand(23000, 23090),
         'calle' => $faker->streetName,
         'referencia' => $faker->sentence(10),
+        'fecha_nacimiento' => $faker->date(),
         'activo' => rand(0, 1),
     ];
 });

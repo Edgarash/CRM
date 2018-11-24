@@ -4,21 +4,37 @@
 
 //Manuel Gastelum
 
-Route::get('/', 'TestController@welcome');
 
-Route::get('/home', 'TestController@welcome');
 
 //Manuel Villanueva
 
 
 //Maribel Montes
-
+Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')
+	->name('ReporteOrden');
+	
+Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
+    ->name('ReporteOrdenes');
 
 //Adalberto Palafox
 
 
 //Edgar Cisneros
 
+Route::get('/Ordenes', 'OrdenesController@index')
+	->name('Ordenes');
+
+Route::get('/Fallas', 'FallasController@index')
+	->name('Fallas');
+
+Route::get('/Fallas/Registrar', 'FallasController@nuevaFalla')
+	->name('registrarFalla');
+
+Route::get('/Forms/Registrar/Falla', 'FallasController@formRegistrarFalla')
+	->name('formRegistrarFalla');
+
+Route::delete('/Fallas/{falla}', 'FallasController@action');
+	
 
 //Rutas de la plantilla
 

@@ -15,4 +15,8 @@ class Cliente extends Model
     public function getFullName() {
         return $this->nombre.' '.$this->apellidos;
     }
+
+    public function getDomicilio() {
+        return $this->calle.', '.$this->colonia.', '.$this->ciudad.', '.$this->cp;
+    }
 }
