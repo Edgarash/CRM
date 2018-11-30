@@ -16,6 +16,8 @@ Route::get('/misOrdenes', 'TestController@ordenes');
 
 Route::get('/miHistorial', 'TestController@miHist');
 
+Route::get('/detalleOrden', 'TestController@detalles'); // vewr detalle de orden
+
 //Manuel Villanueva
 
 
