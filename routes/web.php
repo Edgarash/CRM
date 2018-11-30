@@ -17,11 +17,9 @@ Route::get('/miHistorial', 'TestController@miHist');
 
 //Manuel Villanueva
 
-//Manuel Villanueva
-Route::get('/','Auth\LoginController@showLoginForm');
-Route::get('dashboard','DashboardController@index')->name('dashboard');
-Route::post('login','Auth\LoginController@login')->name('login');
-Route::post('logout','Auth\LoginController@logout')->name('logout');
+Route::get('/Empleados','EmpleadoController@index')->name('Empleados');
+Route::get('/Productos','ProductoController@index')->name('Productos');
+Route::get('/register','RegisterController@')->name('register');
 
 //Maribel Montes
 Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')

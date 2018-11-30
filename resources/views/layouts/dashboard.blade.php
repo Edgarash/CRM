@@ -284,13 +284,33 @@
                         <!-- /.nav-second-level -->
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-table fa-fw"></i> Catálogos<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-table fa-fw"></i> Mantenimiento<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Fallas')) ? 'class="active"' : '') }}>
                                 <a href="{{ route('Fallas') }}">Fallas</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
+                        @if(auth()->check())
+                            @if(auth()->user()->admin === 1 )
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is(route('Empleados')) ? 'class="active"' : '') }}>
+                                    <a href="{{ route('Empleados') }}">Empleados</a>
+                                </li>
+                            </ul>
+                            @endif
+                        @endif
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Productos')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Productos') }}">Productos</a>
+                            </li>
+                        </ul>
+                        
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('register')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('register') }}">Registrar Empleado</a>
+                            </li>
+                        </ul>
                     </li>
 
                      <li>

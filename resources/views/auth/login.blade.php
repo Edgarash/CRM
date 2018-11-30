@@ -50,6 +50,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                            <div class="g-recaptcha" data-sitekey="6LeAln0UAAAAAAuG3OMHF7URL-HSc5mPSN_KTrL4"></div>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
