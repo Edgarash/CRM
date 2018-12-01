@@ -37,6 +37,12 @@ Route::get('/Ordenes', 'OrdenesController@index')
 Route::get('/Fallas', 'FallasController@index')
 	->name('Fallas');
 
+Route::post('/Fallas/Buscar', 'FallasController@buscar')
+	->name('FallasBuscar');
+
+Route::get('/Clientes/Buscar', 'ClientesController@buscar')
+	->name('ClientesBuscar');
+
 Route::get('/Fallas/Registrar', 'FallasController@nuevaFalla')
 	->name('registrarFalla');
 
