@@ -34,14 +34,22 @@ Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
 Route::get('/Ordenes', 'OrdenesController@index')
 	->name('Ordenes');
 
+Route::get('/Clientes', 'ClientesController@index')
+	->name('Clientes');
+
+// use Illuminate\Auth\Middleware\Authenticate;
+Route::get('/Buscar', function() {
+	return view('buscar');
+});
+
+Route::get('/Clientes/Buscar', 'ClientesController@buscar')
+	->name('ClientesBuscar');
+
 Route::get('/Fallas', 'FallasController@index')
 	->name('Fallas');
 
 Route::post('/Fallas/Buscar', 'FallasController@buscar')
 	->name('FallasBuscar');
-
-Route::get('/Clientes/Buscar', 'ClientesController@buscar')
-	->name('ClientesBuscar');
 
 Route::get('/Fallas/Registrar', 'FallasController@nuevaFalla')
 	->name('registrarFalla');
@@ -111,5 +119,3 @@ Route::get('/documentation', function()
 {
 	return View::make('documentation');
 });
-
-

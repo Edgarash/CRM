@@ -36,8 +36,7 @@
     </div>
 </div>
 <div class="text-center">
-    <button id="buscarfalla" class="btn btn-primary pull-left" style="margin-top:20px;">Buscar Falla</button>
-    <script src="{{asset('assets/scripts/CRM/Fallas/Buscar-Fallas.js')}}"></script>
+    
     {!! $fallas->render() !!}
     <button class="btn btn-primary pull-right" style="margin-top: 20px">Nueva Falla</button>
 </div>
