@@ -2,6 +2,10 @@
   vertical-align: middle !important;
 }
 
+#page-wrapper {
+  overflow: auto;
+}
+
 a > i.fa-cog {
   color: #333;
 }

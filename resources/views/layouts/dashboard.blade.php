@@ -224,7 +224,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a a href="#" class="fa fa-user " > {{ Auth::user()->email }}</a>
-                    
+
                     </li>
 
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
@@ -280,6 +280,12 @@
                                 <a href="{{ route('ReporteOrdenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de
                                     reparación</a>
                             </li>
+                            <li {{ (Request::is(route('ReporteProductividad')) ? 'class="active"' : '') }}>
+                                    <a href="{{ route('ReporteProductividad') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Productividad por Técnico</a>
+                            </li>
+                            <li {{ (Request::is(route('ReporteEquiposEstado')) ? 'class="active"' : '') }}>
+                                    <a href="{{ route('ReporteEquiposEstado') }}"><i class="fa fa-file-text-o fa-fw"></i>Aparatos por estado</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -299,15 +305,15 @@
                             <li>
                                 <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
                                     <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
-                                   
+
                                 </li>
-                                
+
                                 <ul class="nav nav-third-level">
                                     <li>
                                         <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
                                     </li>
                                 </ul>
-                                
+
                                 <li>
                                 <a class = "fa fa-history" href="#"> Historial de Modificaciones</a>
                                 </li>
@@ -320,7 +326,7 @@
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
-                    </li> 
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
