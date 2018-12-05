@@ -1,20 +1,61 @@
 <?php
 
+<<<<<<< HEAD
 // Route::middleware('auth')->get('/', function (){
 //     return view('welcome');
 // });
+=======
+// Route::get('/', function (){
+//     return view('auth/login');
+// });
+// Route::get('/welcome', 'TestController@welcome');
+//Route::get('mail/send', 'TestController@correo');// Email related routes
 
-//Manuel Gastelum
+//----*****************************************Manuel Gastelum*********************************------
+//rutas de autentificacion
 
-Route::get('/welcome', 'TestController@welcome');
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
-Auth::routes();
+// Registration Routes...
+Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register', 'Auth\RegisterController@register');
+>>>>>>> 5973844c47440725ba41b21cdacd2ccbf1902484
 
+// Password Reset...
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+ //fin
+
+Route::get('/DetallesOrden/{id}', 'TestController@cargarDetalles')
+	->name('Detalle');
+
+Route::get('/autorizaciones', 'TestController@cargarAuto')
+->name('Autorizaciones');
+
+<<<<<<< HEAD
 Route::get('/', 'HomeController@index')->name('home');
+=======
+Route::get('/autorizaciones', 'TestController@cargarAuto')
+	->name('Autorizaciones');
+
+Route::get('/calificarServicio', 'TestController@cargarCalificaciones')
+	->name('Servicios_Calificados');
+
+Route::get('/detalleOrden', 'TestController@detallesOrden')
+	->name('detallesOrden');
+
+Route::get('/', 'HomeController@index')->name('/');
+>>>>>>> 5973844c47440725ba41b21cdacd2ccbf1902484
 
 Route::get('/misOrdenes', 'TestController@ordenes');
 
 Route::get('/miHistorial', 'TestController@miHist');
+
 
 //Manuel Villanueva
 
