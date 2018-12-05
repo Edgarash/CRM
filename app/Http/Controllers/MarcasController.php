@@ -13,7 +13,8 @@ class MarcasController extends Controller
      */
     public function index()
     {
-        return view('Marcas');
+        $marcas = \App\Marca::all();
+        return view('Marcas',compact('marcas'));
     }
 
     /**

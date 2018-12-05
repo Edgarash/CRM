@@ -13,7 +13,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('Productos');
+        $productos = \App\Producto::all();
+        return view('Productos',compact('productos'));
     }
 
     /**

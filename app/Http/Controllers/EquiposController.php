@@ -13,7 +13,8 @@ class EquiposController extends Controller
      */
     public function index()
     {
-        return view('Equipos');
+        $equipos = \App\Equipo::all();
+        return view('Equipos',compact('equipos'));
     }
 
     /**

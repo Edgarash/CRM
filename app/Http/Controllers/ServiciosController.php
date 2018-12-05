@@ -13,7 +13,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        return view('Servicios');
+        $servicios = \App\Servicio::all();
+        return view('Servicios',compact('servicios'));
     }
 
     /**

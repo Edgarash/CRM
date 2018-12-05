@@ -13,7 +13,8 @@ class EstadosController extends Controller
      */
     public function index()
     {
-        return view('Estados');
+        $estados = \App\Estado::all();
+        return view('Estados',compact('estados'));
     }
 
     /**

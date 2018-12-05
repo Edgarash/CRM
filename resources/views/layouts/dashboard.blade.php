@@ -316,7 +316,7 @@
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('register')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Marcas') }}">Estados</a>
+                                <a href="{{ route('Estados') }}">Estados</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
