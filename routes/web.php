@@ -53,9 +53,20 @@ Route::get('/miHistorial', 'TestController@miHist');
 //Maribel Montes
 Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')
 	->name('ReporteOrden');
-	
+
 Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
     ->name('ReporteOrdenes');
+
+Route::get('/Reportes/Productividad', 'ReportesController@MostrarProductividad')
+	->name('ReporteProductividad');
+	
+Route::post('/Reportes/Productividad', 'ReportesController@ReporteProductividad')
+    ->name('ReporteProductividad-Reporte');
+
+Route::get('/Reportes/EquiposEstados', 'ReportesController@MostrarEquiposEstado')
+->name('ReporteEquiposEstado');
+
+Route::get('/Reportes/Productividad/O', 'ReportesController@Productividad');
 
 //Adalberto Palafox
 
@@ -89,7 +100,7 @@ Route::get('/Forms/Registrar/Falla', 'FallasController@formRegistrarFalla')
 	->name('formRegistrarFalla');
 
 Route::delete('/Fallas/{falla}', 'FallasController@action');
-	
+
 
 //Rutas de la plantilla
 

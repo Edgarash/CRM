@@ -4,6 +4,16 @@
 @section('section')
 <div class="row">
     <div class="col-sm-12">
+        <div class="panel-body">
+            {!! Form::open(['route'=> 'ReporteOrdenes', 'method' => 'GET', 'class'=>'navbar-form navbar-left pull-right']) !!}
+            <div class="form-group">
+                {!!Form::text('cliente',null,['class'=>'form-control', 'placeholder' => 'Nombre del cliente']) !!}
+                {!!Form::text('id',null,['class'=>'form-control', 'placeholder' => 'ID orden']) !!}
+            </div>
+            <button type="submit" class="btn btn-default btn-primary">Buscar</button>
+            {!!Form::close()!!}
+        </div>
+
         <table class="table-condensed table-bordered table-striped">
             <thead>
                 <tr>
@@ -35,6 +45,6 @@
     </div>
 </div>
 <div class="text-center">
-    {!! $ordenes->render() !!}
+    {!! $ordenes->appends(compact('cliente', 'id'))->render() !!}
 </div>
 @stop

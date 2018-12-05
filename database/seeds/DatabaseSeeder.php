@@ -11,11 +11,11 @@ class DatabaseSeeder extends Seeder
      */
 
     public static $sucursales = 2;
-    public static $empleados = 10;
-    public static $users = 10;
-    public static $clientes = 20;
-    public static $ordenes = 20;
-    public static $equipos = 3;
+    public static $empleados = 30;
+    public static $users = 30;
+    public static $clientes = 30;
+    public static $ordenes = 100;
+    public static $equipos = 10;
 
     public function run()
     {

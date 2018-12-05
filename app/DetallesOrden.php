@@ -16,25 +16,49 @@ class DetallesOrden extends Model
     function getEmpleadoRepara() {
         return $this->belongsTo(Empleado::class, 'empleado_repara');
     }
+    
     function getEmpleadoEntrega() {
         return $this->belongsTo(Empleado::class, 'empleado_entrega');
     }
 
-    function equipo()
-    {
+    function equipo() {
         return $this->belongsTo(DetallesOrden::class, 'equipo');
     }
     
-    public function getNombreEquipo()
-    {
+    function getNombreEquipo() {
         return $this->belongsTo(Equipo::class, 'equipo');
     }
-    public function getEstado()
-    {
+
+    function getEstado() {
         return $this->belongsTo(Estado::class, 'estado');
     }
-    public function getServicio()
-    {
-        return $this->belongsTo(Servicio::class, 'servicio');
+
+    function getServicio() {
+        return $this->belongsTo(Servicio::class, 'servicio'); 
+    }
+
+    function scopeTecnico($query, $tecnico) {
+        if (trim($tecnico)) {
+            $query->where('empleado_repara', $tecnico);
+        }
+    }
+
+    function scopeEntreFechas($query, $fecha1, $fecha2) {
+        if (trim($fecha1) && trim($fecha2)) {
+            $query->where([
+                ['fecha_terminado', '>=', $fecha1.' 00:00:00'],
+                ['fecha_terminado', '<=', $fecha2.' 23:59:59']
+            ]);
+        }
+    }
+
+    function getFechaIngresoAttribute(){
+        return Orden::find($this->id)->fecha_ingreso;
+    }
+
+    function scopeEstado($query, $estado) {
+        if (trim($estado)) {
+            $query->where('estado', $estado);
+        }
     }
 }

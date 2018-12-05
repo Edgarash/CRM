@@ -10,6 +10,7 @@ $factory->define(App\Empleado::class, function (Faker $faker) {
         'nombre' => $fn,
         'apellidos' => $ln,
         'email' => $fn.'.'.$ln.'@microsistemas.com',
+        'tecnico' => rand(0,1),
         'sucursal' => Sucursal::all()->random()->id
     ];
 });

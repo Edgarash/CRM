@@ -49,4 +49,26 @@ class Orden extends Model
     public function getFechaAttribute() {
         return date_format(date_create($this->fecha_ingreso), 'd/M/Y h:i:s A');
     }
+
+    public function scopeorCliente($query,$cliente)
+    {
+        if (trim($cliente) != "") {
+            $clientes = Cliente::where('nombre', 'like', '%'.$cliente.'%')->pluck('id')->all();
+            $query->orwhereIn('cliente', $clientes);
+        }
+    }
+
+    public function scopeCliente($query,$cliente)
+    {
+        if (trim($cliente) != "") {
+            $clientes = Cliente::where('nombre', 'like', '%'.$cliente.'%')->pluck('id')->all();
+            $query->whereIn('cliente', $clientes);
+        }
+    }
+
+    public function scopeID($query, $id) {
+        if (trim($id) != "") {
+            $query->where('id', $id);
+        }
+    }
 }

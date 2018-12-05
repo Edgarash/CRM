@@ -20,6 +20,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('email')->unique();
             $table->integer('sucursal')->unsigned();
             $table->foreign('sucursal')->references('id')->on('sucursales');
+            $table->boolean('tecnico');
             $table->timestamps();
         });
     }

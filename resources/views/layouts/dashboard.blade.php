@@ -223,19 +223,18 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a a href="#" class="fa fa-user " > {{ Auth::user()->email }}</a>
-                    
+                    <li><a a href="#" class="fa fa-user "> {{ Auth::user()->email }}</a>
+
                     </li>
 
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
 
                     <li class="divider"></li>
-                    <li><a class="dropdown-item" href="#"
-                                       onclick="event.preventDefault();
+                    <li><a class="dropdown-item" href="#" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Cerrar Sesión') }}
-                                    </a>
+                            {{ __('Cerrar Sesión') }}
+                        </a>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -281,6 +280,14 @@
                                 <a href="{{ route('ReporteOrdenes') }}"><i class="fa fa-file-text fa-fw"></i>Órdenes de
                                     reparación</a>
                             </li>
+                            <li {{ (Request::is(route('ReporteProductividad')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('ReporteProductividad') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Productividad
+                                    por Técnico</a>
+                            </li>
+                            <li {{ (Request::is(route('ReporteEquiposEstado')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('ReporteEquiposEstado') }}"><i class="fa fa-file-text-o fa-fw"></i>Equipos
+                                    por estado</a>
+                            </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
@@ -295,28 +302,39 @@
                     </li>
                     @else()
 
-                     <li>
-                         <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                    <li>
+                        <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
-                                    <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes </a>
-                                   
-                                </li> 
+                            <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
+                                <a class="fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+
+                            </li>
+
+                            <ul class="nav nav-third-level">
                                 <li>
-                                <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de Modificaciones</a>
+                                    <a class="fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
                                 </li>
-                                <!-- <li>
+                            </ul>
+
+                            <li>
+                                <a class="fa fa-history" href="#"> Historial de Modificaciones</a>
+                            </li>
+                            <li>
+                                <a class="fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de Modificaciones</a>
+                            </li>
+                            <!-- <li>
                                 <a class = "fa fa-star" href="{{ route('Servicios_Calificados') }}"> Calificar Servicio</a>
                                 </li> -->
-                                <li>
-                                <a class = "fa fa-thumbs-o-up" href="{{ route('Autorizaciones') }}"> Autorización de cambios en el presupuesto/cotización</a>
-                                </li>
+                            <li>
+                                <a class="fa fa-thumbs-o-up" href="{{ route('Autorizaciones') }}"> Autorización de
+                                    cambios en el presupuesto/cotización</a>
                             </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li> 
-                    @endif()
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+                </li>
+                @endif()
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -334,7 +352,7 @@
         @yield('section')
         <!-- /#page-wrapper -->
     </div>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
 </div>

@@ -18,10 +18,12 @@
     <link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/jquery-confirm/jquery-confirm.min.css") }}" />
     <link rel="stylesheet" href="{{ asset("assets/stylesheets/views.css") }}" />
+    @yield('styles')
     {{-- JQuery --}}
     <script src="{{ asset('assets/scripts/jquery.min.js') }}"></script>
     <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
     <script src="{{ asset('assets/jquery-confirm/jquery-confirm.min.js') }}"></script>
+    @yield('scripts')
 </head>
 
 <body>
