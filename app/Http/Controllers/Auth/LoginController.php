@@ -32,6 +32,12 @@ class LoginController extends Controller
         ->withErrors(['email'=> trans('auth.failed')])
         ->withInput(request(['email']));
     }
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/';
 
     public function logout()
     {
