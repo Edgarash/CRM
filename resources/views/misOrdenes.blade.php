@@ -22,7 +22,6 @@
 @else
 <h1>No hay órdenes registradas</h1>
 @endif
-
 	<div class="row">
 		<div class="col-sm-12">
 			@section ('cotable_panel_title','Ultimas Ordenes')
@@ -43,8 +42,7 @@
                     <td class="align-middle">{{$orden->getEmpleadoRecibe->getFullName()}}</td>
                     <td class="align-middle">{{$orden->fecha_ingreso}}</td>
 					<td class="text-center">
-                        <a data-toggle="tooltip" title="Ver detalles" data-placement="left"><i
-                                class="fa fa-2x fa-th-list"></i></a>
+                        <a href="{{route('Detalle',[$orden->id])}}"><i class="fa fa-2x fa-th-list"></i></a>
                     </td>
                 </tr>
                 @endforeach

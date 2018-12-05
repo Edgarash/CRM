@@ -5,6 +5,12 @@ namespace App\Http\Controllers\Auth;
 use Auth;
 use App\Http\Controllers\Controller;
 
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
+
+
 class LoginController extends Controller
 {
     public function __construct()
@@ -37,11 +43,40 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'welcome';
 
     public function logout()
     {
         Auth::logout();
         return redirect('/');
     }
+
+    // public function siteRegisterPost(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'email' => 'required|email',
+    //         'password' => 'required|string',
+    //         'g-recaptcha-response' => 'required|captcha',
+    //     ]);
+
+    //     print('done');
+    // }
+
+    // public function siteRegister()
+    // {
+    //     return view('welcome');
+    // }
+
+    protected function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        $this->validate($request, [
+            'g-recaptcha-response' => 'required|captcha',
+        ]); 
+    }
+
 }

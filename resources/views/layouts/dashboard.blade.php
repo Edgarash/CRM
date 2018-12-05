@@ -1,6 +1,6 @@
-
-
 @extends('layouts.plane')
+
+
 
 @section('body')
 <div id="wrapper">
@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('login') }}"><img src="/images/logo2.png" alt="Microsistemas" srcset=""
+            <a class="navbar-brand" href="{{ route('/') }}"><img src="/images/logo2.png" alt="Microsistemas" srcset=""
                     style="width:220px;height:40px;top:-8px;position:relative"></a>
         </div>
         <!-- /.navbar-header -->
@@ -259,8 +259,9 @@
                         <!-- /input-group -->
                     </li>
                     <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                        <a href="{{ url ('') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                        <a href="{{ url ('/') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                     </li>
+                    @if(Auth::user()->empleado == 1)
                     <li>
                         <a href="#"><i class="fa fa-edit fa-fw"></i> Órdenes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -332,35 +333,30 @@
                             @endif
                         @endif
                     </li>
+                    @else()
 
                      <li>
                          <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
-                                    <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+                                    <a class = "fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes </a>
                                    
-                                </li>
-                                
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
-                                    </li>
-                                </ul>
-                                
+                                </li> 
                                 <li>
-                                <a class = "fa fa-history" href="#"> Historial de Modificaciones</a>
+                                <a class = "fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de Modificaciones</a>
                                 </li>
+                                <!-- <li>
+                                <a class = "fa fa-star" href="{{ route('Servicios_Calificados') }}"> Calificar Servicio</a>
+                                </li> -->
                                 <li>
-                                <a class = "fa fa-star" href="#"> Calificar Servicio</a>
-                                </li>
-                                <li>
-                                <a class = "fa fa-thumbs-o-up" href="#"> Autorización de cambios en el presupuesto/cotización</a>
+                                <a class = "fa fa-thumbs-o-up" href="{{ route('Autorizaciones') }}"> Autorización de cambios en el presupuesto/cotización</a>
                                 </li>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li> 
+                    @endif()
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
