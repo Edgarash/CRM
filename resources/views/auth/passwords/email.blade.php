@@ -23,7 +23,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}"><img src="{{ asset('images/logo2.png') }}" alt="Microsistemas" srcset=""
+                <a class="navbar-brand" href="{{ route('/') }}"><img src="{{ asset('images/logo2.png') }}" alt="Microsistemas" srcset=""
                     style="width:220px;height:40px;top:-2px;position:relative"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -85,7 +85,6 @@
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
-
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
 
@@ -98,15 +97,15 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
-
+                        </div>  
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button  type="submit" class="btn btn-primary">
                                     {{ __('Enviar enlace de reestablecer contraseña') }}
                                 </button>
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>
