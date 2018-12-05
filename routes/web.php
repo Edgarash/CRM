@@ -27,7 +27,10 @@ Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
     ->name('ReporteOrdenes');
 
 Route::get('/Reportes/Productividad', 'ReportesController@MostrarProductividad')
-    ->name('ReporteProductividad');
+	->name('ReporteProductividad');
+	
+Route::post('/Reportes/Productividad', 'ReportesController@ReporteProductividad')
+    ->name('ReporteProductividad-Reporte');
 
 Route::get('/Reportes/EquiposEstados', 'ReportesController@MostrarEquiposEstado')
 ->name('ReporteEquiposEstado');

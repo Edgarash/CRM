@@ -284,7 +284,7 @@
                                     <a href="{{ route('ReporteProductividad') }}"><i class="fa fa-bar-chart-o fa-fw"></i>Productividad por Técnico</a>
                             </li>
                             <li {{ (Request::is(route('ReporteEquiposEstado')) ? 'class="active"' : '') }}>
-                                    <a href="{{ route('ReporteEquiposEstado') }}"><i class="fa fa-file-text-o fa-fw"></i>Aparatos por estado</a>
+                                    <a href="{{ route('ReporteEquiposEstado') }}"><i class="fa fa-file-text-o fa-fw"></i>Equipos por estado</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->

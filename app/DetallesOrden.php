@@ -31,6 +31,10 @@ class DetallesOrden extends Model
         }
     }
 
+    function getFechaIngresoAttribute(){
+        return Orden::find($this->id)->fecha_ingreso;
+    }
+
     function scopeEstado($query, $estado) {
         if (trim($estado)) {
             $query->where('estado', $estado);
