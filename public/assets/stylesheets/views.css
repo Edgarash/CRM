@@ -1,4 +1,5 @@
-.align-middle {
+.align-middle,
+table > tbody > tr > td {
   vertical-align: middle !important;
 }
 
@@ -19,7 +20,8 @@ a > i.fa-trash:hover {
 }
 
 a > i.fa-cog:hover,
-a > i.fa-trash:hover {
+a > i.fa-trash:hover,
+a.page-link:hover {
   cursor: pointer;
 }
 

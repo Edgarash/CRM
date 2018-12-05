@@ -15,11 +15,17 @@ a>i.fa-trash {
 }
 
 a>i.fa-trash:hover {
-    color:#B00;
+    color: #B00;
 }
 
-a>i.fa-cog:hover, a>i.fa-trash:hover {
+a>i.fa-cog:hover,
+a>i.fa-trash:hover,
+a.page-link:hover {
     cursor: pointer;
+}
+
+table>tbody>tr>td {
+    @extend .align-middle;
 }
 
 .space-bottom {

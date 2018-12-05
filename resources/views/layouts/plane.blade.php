@@ -28,5 +28,9 @@
 <body>
     @yield('body')
 </body>
+<script>
+    $('[data-toggle="tooltip"]').tooltip();
+
+</script>
 
 </html>

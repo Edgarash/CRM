@@ -15,7 +15,7 @@ class CreateFallasTable extends Migration
     {
         Schema::create('fallas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
+            $table->string('nombre')->unique();
             $table->timestamps();
         });
     }
