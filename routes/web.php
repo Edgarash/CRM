@@ -1,10 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-// Route::middleware('auth')->get('/', function (){
-//     return view('welcome');
-// });
-=======
 // Route::get('/', function (){
 //     return view('auth/login');
 // });
@@ -22,7 +17,6 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 // Registration Routes...
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
->>>>>>> 5973844c47440725ba41b21cdacd2ccbf1902484
 
 // Password Reset...
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -37,9 +31,6 @@ Route::get('/DetallesOrden/{id}', 'TestController@cargarDetalles')
 Route::get('/autorizaciones', 'TestController@cargarAuto')
 ->name('Autorizaciones');
 
-<<<<<<< HEAD
-Route::get('/', 'HomeController@index')->name('home');
-=======
 Route::get('/autorizaciones', 'TestController@cargarAuto')
 	->name('Autorizaciones');
 
@@ -50,7 +41,6 @@ Route::get('/detalleOrden', 'TestController@detallesOrden')
 	->name('detallesOrden');
 
 Route::get('/', 'HomeController@index')->name('/');
->>>>>>> 5973844c47440725ba41b21cdacd2ccbf1902484
 
 Route::get('/misOrdenes', 'TestController@ordenes');
 

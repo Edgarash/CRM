@@ -20,6 +20,20 @@ class UsersSeeder extends Seeder
                 'empleado' => 1,
                 'admin' => 1,
                 'activo' => 1
+            ],
+            [
+                'email' => 'edgar.31896@gmail.com',
+                'password' => bcrypt('admin'),
+                'empleado' => 1,
+                'admin' => 1,
+                'activo' => 1
+            ],
+            [
+                'email' => 'cliente@cliente.com',
+                'password' => bcrypt('cliente'),
+                'empleado' => 0,
+                'admin' => 0,
+                'activo' => 1
             ]
         ];
         
