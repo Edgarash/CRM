@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('RegistrarEmpleado') }}">
+                    <form method="POST" action="{{ route('/home') }}">
                         @csrf
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -47,24 +47,25 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="Empleoyee Kind" class="col-md-4 col-form-label text-md-right">{{ __('Empleoyee Kind') }}</label>
+                            <label for="Tipo Empleado" class="col-md-4 col-form-label text-md-right">{{ __('Empleoyee Kind') }}</label>
 
                             <div class="col-md-6">
-                                <select id="empleoyeekind" class="form-control" name="password_confirmation" required>
+                                <select id="empleado" class="form-control" name="password_confirmation" required>
                                     <option value="Tecnico">Tecnico</option>
                                     <option value="Empleado de Caja">Empleado de Caja</option>
                                     <option value="Administrador">Administrador</option>
                                     <option value="Empleado de Piso">Empleado de Piso</option>
                                 </select>
                             </div>
+                            
                         </div>
-                        <!--<br>
+                        <br>
                         <h1>Informacion del Empleado</h1>
                         
                         <div class="form-group row">
                             <label for="Nombre" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre_empleado" required>
+                                <input id="nombres" type="text" class="form-control" name="nombres" required>
                             </div>
                         </div>
                         
@@ -72,7 +73,7 @@
                             <label for="Apellidos" class="col-md-4 col-form-label text-md-right">{{ __('Apellidos') }}</label>
 
                             <div class="col-md-6">
-                                <input id="empleoyeekind" type="select" class="form-control" name="password_confirmation" required>
+                                <input id="apellidos" type="select" class="form-control" name="apellidos" required>
                             </div>
                         </div>
                         
@@ -80,14 +81,22 @@
                             <label for="Sucursal" class="col-md-4 col-form-label text-md-right">{{ __('Sucursal') }}</label>
 
                             <div class="col-md-6">
-                                <input id="sucu" type="text" class="form-control" name="sucursal" required>
+                                <input id="sucursal" type="text" class="form-control" name="sucursal" required>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                            <div class="g-recaptcha" data-sitekey="6LeAln0UAAAAAAuG3OMHF7URL-HSc5mPSN_KTrL4"></div>
+                        <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Captcha</label>
+
+                            <div class="col-md-6 pull-center">
+                                {!! app('captcha')->display() !!}
+
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                             </div>
-                        </div>-->
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

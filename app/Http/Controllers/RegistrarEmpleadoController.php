@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
+use App\Empleado;
 use Illuminate\Http\Request;
 
 class RegistrarEmpleadoController extends Controller
@@ -16,21 +17,39 @@ class RegistrarEmpleadoController extends Controller
         return view('RegistrarEmpleado');
     }
 
+    
     /**
-     * Show the form for creating a new resource.
+     * Create a new user instance after a valid registration.
      *
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return \App\User
      */
-    public function create()
+    public function create(Request $request)
     {
-        return User::create([
+        $usuario = new User;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->empleado = 1;
+        $usuario->admin = false;
+        $usuario->clientuser_id = false;
+        $usuario->activo = true;
+        
+        $emp = new Empleado;
+        $emp->nombre = $request->nombres;
+        $emp->apellidos = $request->apellidos;
+        $emp->email = $request->email;
+        $emp->sucursal = $request->sucursal;
+        $usuario->save();
+        $emp->save();
+
+
+        /*
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'empleado' => 1,
             'admin' => false,
             'clientuser_id' => false,
-            'activo' => true,
-        ]);
+            'activo' => true,*/
 
         /*return Empleado::create([
             'email' => $data['email'],
@@ -56,7 +75,7 @@ class RegistrarEmpleadoController extends Controller
 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
-            'g-recaptcha-response' => 'required|captcha'
+            'g-recaptcha-response' => 'required|captcha',
         ]);
     }
     //protected $redirectTo = '/home';
