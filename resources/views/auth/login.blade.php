@@ -55,13 +55,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                            <div class="g-recaptcha" data-sitekey="6LeAln0UAAAAAAuG3OMHF7URL-HSc5mPSN_KTrL4"></div>
-                            </div>
-                        </div>
-
-                        
-                        <div class="form-group row">
                             <div class="offset-md-4">
                                 <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                                     <!-- <div class="g-recaptcha" data-sitekey="6LcFZ34UAAAAAD7PVUj-pngs9A39yM0ryZfeF_VK"></div> -->

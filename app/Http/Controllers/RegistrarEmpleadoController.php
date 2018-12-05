@@ -28,7 +28,7 @@ class RegistrarEmpleadoController extends Controller
     {
         $usuario = new User;
         $usuario->email = $request->email;
-        $usuario->password = $request->password;
+        $usuario->password = bcrypt($request->password);
         $usuario->empleado = 1;
         $usuario->admin = false;
         $usuario->clientuser_id = false;
