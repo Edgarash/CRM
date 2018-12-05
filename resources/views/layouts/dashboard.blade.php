@@ -298,8 +298,6 @@
                                     <a href="{{ route('Empleados') }}">Empleados</a>
                                 </li>
                             </ul>
-                            @endif
-                        @endif
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Productos')) ? 'class="active"' : '') }}>
                                 <a href="{{ route('Productos') }}">Productos</a>
@@ -307,10 +305,32 @@
                         </ul>
                         
                         <ul class="nav nav-second-level">
-                            <li {{ (Request::is(route('register')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('register') }}">Registrar Empleado</a>
+                            <li {{ (Request::is(route('Equipos')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Equipos') }}">Equipos</a>
                             </li>
                         </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Marcas')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Marcas') }}">Marcas</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('register')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Marcas') }}">Estados</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Servicios')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Servicios') }}">Servicios</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('RegistrarEmpleado')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('RegistrarEmpleado') }}">Registrar Empleado</a>
+                            </li>
+                        </ul>
+                            @endif
+                        @endif
                     </li>
 
                      <li>

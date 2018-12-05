@@ -19,7 +19,12 @@ Route::get('/miHistorial', 'TestController@miHist');
 
 Route::get('/Empleados','EmpleadoController@index')->name('Empleados');
 Route::get('/Productos','ProductoController@index')->name('Productos');
-Route::get('/register','RegisterController@')->name('register');
+Route::get('/Marcas','MarcasController@index')->name('Marcas');
+Route::get('/Estados','EstadosController@index')->name('Estados');
+Route::get('/Equipos','EquiposController@index')->name('Equipos');
+Route::get('/Servicios','ServiciosController@index')->name('Servicios');
+Route::get('/RegistrarEmpleado','RegistrarEmpleadoController@index')->name('RegistrarEmpleado');
+Route::post('/RegistrarEmpleado','RegistrarEmpleadoController@create')->name('AgregarEmpleado');
 
 //Maribel Montes
 Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')

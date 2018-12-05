@@ -22,6 +22,7 @@
     <script src="{{ asset('assets/scripts/jquery.min.js') }}"></script>
     <script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
     <script src="{{ asset('assets/jquery-confirm/jquery-confirm.min.js') }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
