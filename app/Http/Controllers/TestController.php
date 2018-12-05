@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Orden;
 class TestController extends Controller
 {
 
@@ -14,16 +14,22 @@ class TestController extends Controller
 
     // public 
     public function welcome(){
+        
         return view('welcome');
     } 
 
     public function ordenes()
     {
-        return view('misOrdenes');
+        $ord = Orden::where('cliente', 8)->get();
+        return view('misOrdenes')->with(compact('ord'));
     }
 
     public function miHist()
     {
         return view('miHistorial');
+    }
+
+    public function detalles(){//listado
+        return ('');
     }
 }
