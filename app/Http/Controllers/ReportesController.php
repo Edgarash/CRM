@@ -10,6 +10,7 @@ use App\Empleado;
 use App\Estado;
 use App\DetallesOrden;
 use App\Reportes\ReporteProductividad;
+use App\Reportes\ReporteEquiposEstados;
 
 class ReportesController extends Controller
 {
@@ -63,15 +64,25 @@ class ReportesController extends Controller
         $reporte->show($equipos);
     }
 
-    public function MostrarEquiposEstado()
-    {
-        $tecnicos = Empleado::tecnicos()->get();
-        $estados = Estado::orderBy('estado', 'asc')->get();
-
+    public function ReporteEquiposEstado() {
+       // $selTecnico = request()->has('selTecnico') ? request()->validate(['selTecnico' => 'required'])['selTecnico'] : null;
         $selEstado = request()->has('selEstado') ? request('selEstado') : null;
         $fechaInicio = request()->has('fechaInicio') ? request('fechaInicio') : null;
         $fechaFinal = request()->has('fechaFinal') ? request('fechaFinal') : null;
 
+        $equipos = $this->EquiposEstado($selEstado, $fechaInicio, $fechaFinal)->get();
+        $reporte = new ReporteEquiposEstados();
+        $reporte->show($equipos, $selEstado, $fechaInicio, $fechaFinal);
+    }
+
+    public function MostrarEquiposEstado()
+    {
+        $tecnicos = Empleado::tecnicos()->get();
+        $estados = Estado::orderBy('estado', 'asc')->get();
+        $selEstado = request()->has('selEstado') ? request('selEstado') : null;
+        $fechaInicio = request()->has('fechaInicio') ? request('fechaInicio') : null;
+        $fechaFinal = request()->has('fechaFinal') ? request('fechaFinal') : null;
+        
         $equipos = $this->EquiposEstado($selEstado, $fechaInicio, $fechaFinal)->paginate(7);
         
         return view('rEquiposEstado', compact(
@@ -80,11 +91,17 @@ class ReportesController extends Controller
     }
     function EquiposEstado($selEstado, $fechaInicio, $fechaFinal)
     {
-        $equipos = DetallesOrden::EntreFechas($fechaInicio, $fechaFinal);
-        $equipos = ($selEstado != null ? $equipos->Estado($selEstado) : $equipos->whereIn('estado', [1,2,3,4,5, 6]))
+        
+        $ordenes = Orden::EntreFechasIngreso($fechaInicio, $fechaFinal)->pluck('id');
+        $equipos = DetallesOrden::join('ordenes', 'ordenes.id', '=', 'detalles_ordenes.id')
+        ->orderBy('ordenes.fecha_ingreso', 'asc')
+        ->select('detalles_ordenes.*')
+        ->whereIn('detalles_ordenes.id', $ordenes);
+        $equipos = ($selEstado != null ? $equipos->Estado($selEstado) : $equipos)
         ->orderBy('empleado_repara', 'asc');
         return $equipos;
     }
+
     function Productividad($selTecnico, $selEstado, $fechaInicio, $fechaFinal)
     {
         $equipos = DetallesOrden::EntreFechas($fechaInicio, $fechaFinal);

@@ -59,6 +59,8 @@ Route::get('/Reportes/Ordenes','ReportesController@MostrarOrdenes' )
 
 Route::get('/Reportes/Productividad', 'ReportesController@MostrarProductividad')
 	->name('ReporteProductividad');
+
+	Route::get('/Reportes/Productividad/O', 'ReportesController@Productividad');
 	
 Route::post('/Reportes/Productividad', 'ReportesController@ReporteProductividad')
     ->name('ReporteProductividad-Reporte');
@@ -66,7 +68,10 @@ Route::post('/Reportes/Productividad', 'ReportesController@ReporteProductividad'
 Route::get('/Reportes/EquiposEstados', 'ReportesController@MostrarEquiposEstado')
 ->name('ReporteEquiposEstado');
 
-Route::get('/Reportes/Productividad/O', 'ReportesController@Productividad');
+Route::post('/Reportes/EquiposEstados', 'ReportesController@ReporteEquiposEstado')
+    ->name('ReporteEquiposEstados-Reporte');
+
+
 
 //Adalberto Palafox
 
