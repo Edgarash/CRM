@@ -45,7 +45,37 @@ Route::get('/miHistorial', 'TestController@miHist');
 
 
 //Manuel Villanueva
-
+Route::get('/Empleados','EmpleadoController@index')->name('Empleados');
+Route::get('/Productos','ProductoController@index')->name('Productos');
+Route::get('/Marcas','MarcasController@index')->name('Marcas');
+Route::get('/Estados','EstadosController@index')->name('Estados');
+Route::get('/Equipos','EquiposController@index')->name('Equipos');
+Route::get('/Servicios','ServiciosController@index')->name('Servicios');
+// Registrar Empleados y Editar Empleados
+Route::get('/RegistrarEmpleado','RegistrarEmpleadoController@index')->name('RegistrarEmpleado');
+Route::post('/RegistrarEmpleado','RegistrarEmpleadoController@create')->name('AgregarEmpleado');
+Route::get('/empleados/{id}/Modificarempleado','RegistrarEmpleadoController@editar');
+Route::post('/empleados/{id}/Modificarempleado','RegistrarEmpleadoController@modificar');
+//Registrar marca
+route::get('/Registrarmarca','RegistrarMarcaController@index')->name('Registrarmarca');
+route::post('/Registrarmarca','RegistrarMarcaController@create')->name('Agregarmarca');
+route::get('/marcas/{id}/Modificarmarca','RegistrarMarcaController@editar');
+route::post('/marcas/{id}/Modificarmarca','RegistrarMarcaController@modificar');
+//Registar Equipo
+route::get('/Registrarequipo','RegistrarEquipoController@index')->name('Registrarequipo');
+route::post('/Registrarequipo','RegistrarEquipoController@create')->name('Agregarequipo');
+route::get('/equipos/{id}/Modificarequipo','RegistrarEquipoController@editar');
+route::post('/equipos/{id}/Modificarequipo','RegistrarEquipoController@modificar');
+//Registar Servicio
+route::get('/Registrarservicio','RegistrarServicioController@index')->name('Registrarservicio');
+route::post('/Registrarservicio','RegistrarServicioController@create')->name('Agregarservicio');
+route::get('/servicios/{id}/Modificarservicio','RegistrarServicioController@editar');
+route::post('/servicios/{id}/Modificarservicio','RegistrarServicioController@modificar');
+//Registrar Estado
+route::get('/Registrarestado','RegistrarEstadoController@index')->name('Registrarestado');
+route::post('/Registrarestado','RegistrarEstadoController@create')->name('Agregarestado');
+route::get('/estados/{id}/Modificarestado','RegistrarEstadoController@editar');
+route::post('/estados/{id}/Modificarestado','RegistrarEstadoController@modificar');
 
 //Maribel Montes
 Route::get('/Reportes/Ordenes/{id}', 'ReportesController@showOrden')
