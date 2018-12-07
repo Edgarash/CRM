@@ -318,9 +318,6 @@
                             </ul>
 
                             <li>
-                                <a class="fa fa-history" href="#"> Historial de Modificaciones</a>
-                            </li>
-                            <li>
                                 <a class="fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de Modificaciones</a>
                             </li>
                             <!-- <li>

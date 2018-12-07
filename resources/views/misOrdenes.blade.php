@@ -42,7 +42,7 @@
                     <td class="align-middle">{{$orden->getEmpleadoRecibe->getFullName()}}</td>
                     <td class="align-middle">{{$orden->fecha_ingreso}}</td>
 					<td class="text-center">
-                        <a href="{{route('Detalle',[$orden->id])}}"><i class="fa fa-2x fa-th-list"></i></a>
+                        <a href="{{ route('Detalle',[$orden->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-2x fa-th-list"></i></a>
                     </td>
                 </tr>
                 @endforeach
@@ -139,5 +139,25 @@
 		</div>
 	</div>
 	</div> 
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="exampleModalLabel">Detalle de orden</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+				</div>
+				</div>
+			</div>
+		</div>
 
 @stop

@@ -37,9 +37,6 @@ Route::get('/autorizaciones', 'TestController@cargarAuto')
 Route::get('/calificarServicio', 'TestController@cargarCalificaciones')
 	->name('Servicios_Calificados');
 
-Route::get('/detalleOrden', 'TestController@detallesOrden')
-	->name('detallesOrden');
-
 Route::get('/', 'HomeController@index')->name('/');
 
 Route::get('/misOrdenes', 'TestController@ordenes');
