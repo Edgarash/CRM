@@ -264,8 +264,8 @@
                     <li>
                         <a href="#"><i class="fa fa-edit fa-fw"></i> Órdenes<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                <a href="{{ url ('panels') }}">Crear Orden</a>
+                            <li {{ (Request::is(route('OrdenesRegistrar')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('OrdenesRegistrar') }}">Crear Orden</a>
                             </li>
                             <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
                                 <a href="{{ url (route('Ordenes') ) }}">Ver Ordenes</a>

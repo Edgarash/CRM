@@ -17,10 +17,10 @@ $(document).ready(function () {
     function BuscarCliente(Cliente = "", Page = 1) {
         var csrf = $('input[name="_token"]').val();
         $.ajax({
-            method: 'GET',
-            // headers: {
-            //     'X-CSRF-TOKEN': csrf
-            // },
+            method: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': csrf
+            },
             url: '/Clientes/Buscar?Nombre=' + Cliente + '&page=' + Page,
             dataType: 'HTML',
             success: function (x, y, data) {
