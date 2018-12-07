@@ -9,6 +9,8 @@ use Faker\Factory;
 use App\Estado;
 use App\Servicio;
 use App\Empleado;
+use App\Falla;
+use App\EquiposFallas;
 
 class OrdenesSeeder extends Seeder
 {
@@ -55,6 +57,17 @@ class OrdenesSeeder extends Seeder
                         'empleado_entrega' => $estado < 6 ? null : Empleado::all()->random()->id,
                         'garantia' => rand(0, 1)
                     ]);
+
+                    $fallas = Falla::all();
+                    foreach ($fallas as $falla) {
+                        if (rand(0, 1)) {
+                            EquiposFallas::create([
+                                'orden_id' => $folio->id,
+                                'equipo_id' => $equipo->id,
+                                'falla_id' => $falla->id
+                            ]);
+                        }
+                    }
                 }
             }
             

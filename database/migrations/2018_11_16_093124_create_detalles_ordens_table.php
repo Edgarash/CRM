@@ -26,6 +26,9 @@ class CreateDetallesOrdensTable extends Migration
             $table->integer('servicio')->unsigned();
             $table->foreign('servicio')->references('id')->on('servicios');
 
+            $table->string('accesorios')->nullable();
+            $table->string('observaciones')->nullable();
+
             $table->datetime('fecha_terminado')->nullable();
 
             $table->integer('empleado_repara')->unsigned()->nullable();
@@ -37,7 +40,7 @@ class CreateDetallesOrdensTable extends Migration
             $table->foreign('empleado_entrega')->references('id')->on('empleados');
 
             $table->boolean('garantia')->default(0);
-
+            $table->unique(['id', 'equipo']);
             $table->timestamps();
         });
     }

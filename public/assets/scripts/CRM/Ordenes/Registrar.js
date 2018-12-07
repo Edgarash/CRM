@@ -21,7 +21,11 @@ $(document).ready(function () {
                         $('#clienteRFC').val(cliente.RFC);
                         $('#clienteemail').val(cliente.email);
                         $('#clientedireccion').val(
-                            'Calle: '+cliente.calle+'\nCol: '+cliente.colonia+'\nCiudad: '+cliente.ciudad+'\nCP: '+cliente.cp+'\nREF: '+cliente.referencia
+                            'Ciudad: '+cliente.ciudad+'\n'+
+                            'Col: '+cliente.colonia+'\n'+
+                            'Calle: '+cliente.calle+'\n'+
+                            'CP: '+cliente.cp+'\n'+
+                            'REF: '+cliente.referencia
                         );
                     } else {
                         limpiarCliente();
