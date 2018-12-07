@@ -7,6 +7,15 @@ table > tbody > tr > td {
   overflow: auto;
 }
 
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 a > i.fa-cog {
   color: #333;
 }
@@ -25,7 +34,9 @@ a > i.fa-trash:hover {
 
 a > i.fa-cog:hover,
 a > i.fa-trash:hover,
-a.page-link:hover {
+a.page-link:hover,
+.btn,
+.btn-primary {
   cursor: pointer;
 }
 

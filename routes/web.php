@@ -73,15 +73,20 @@ Route::get('/Reportes/Productividad/O', 'ReportesController@Productividad');
 Route::get('/Ordenes', 'OrdenesController@index')
 	->name('Ordenes');
 
+Route::get('/Ordenes/Registrar', 'OrdenesController@Registrar')
+	->name('OrdenesRegistrar');
+
+Route::post('/Ordenes/Registrar/Cliente', 'OrdenesController@getCliente');
+	// ->name('OrdenesRegistrar');
+
 Route::get('/Clientes', 'ClientesController@index')
 	->name('Clientes');
 
-// use Illuminate\Auth\Middleware\Authenticate;
 Route::get('/Buscar', function() {
 	return view('buscar');
 });
 
-Route::get('/Clientes/Buscar', 'ClientesController@buscar')
+Route::post('/Clientes/Buscar', 'ClientesController@buscar')
 	->name('ClientesBuscar');
 
 Route::get('/Fallas', 'FallasController@index')

@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'equipos',
             'detalles_ordenes',
             'users',
+            'equipos_fallas',
         ]);
         $this->call(SucursalesSeeder::class);
         $this->call(EstadosSeeder::class);

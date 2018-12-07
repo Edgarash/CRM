@@ -15,7 +15,7 @@ class ClientesController extends Controller
     function buscar(Request $request) {
         if ($request->has('Nombre')) {
             $x = $request->get('Nombre');
-            $clientes = Cliente::whereRaw('concat(nombre, " ", apellidos) like ?', '%'.$x.'%')->paginate(5);
+            $clientes = Cliente::whereRaw('concat(nombre, " ", apellidos) like ?', '%'.$x.'%')->paginate(4);
             return view('clientes.buscar-clientes', compact('clientes'));
         } else {
             return json_encode([

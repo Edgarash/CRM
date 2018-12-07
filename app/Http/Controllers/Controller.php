@@ -14,5 +14,21 @@ class Controller extends BaseController
         $this->middleware('auth');
     }
 
+    public function AjaxErrorResponse($message = null, $code = 10, $title = 'ERROR') {
+        return json_encode([
+            'code' => $code,
+            'title' => $title,
+            'message' => $message != null ? $message.' no especificado' : 'No se especificó'
+        ]);
+    }
+
+    public function AjaxResponse($message = null, $code = 1, $title = 'SUCCESS') {
+        return json_encode([
+            'code' => $code,
+            'title' => $title,
+            'message' => $message != null ? json_encode($message) : null
+        ]);
+    }
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
