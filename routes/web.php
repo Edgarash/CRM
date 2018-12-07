@@ -85,6 +85,7 @@ Route::get('/Ordenes/Registrar', 'OrdenesController@Registrar')
 	->name('OrdenesRegistrar');
 
 Route::post('/Ordenes/Registrar/Cliente', 'OrdenesController@getCliente');
+Route::post('/Ordenes/Registrar/Equipos', 'OrdenesController@getCliente');
 	// ->name('OrdenesRegistrar');
 
 Route::get('/Clientes', 'ClientesController@index')

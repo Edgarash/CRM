@@ -30,7 +30,7 @@
             </tbody>
         </table>
     </div>
-    <div class="text-center" style="position: relative; top:-20px">
+    <div class="text-center" style="position: relative; top:-20px;margin:auto">
         {!! $clientes->render() !!}
     </div>
 </div>

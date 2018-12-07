@@ -13,7 +13,7 @@ $factory->define(App\DetallesOrden::class, function (Faker $faker) {
         'equipo' => Equipo::all()->random()->id,
         'estado' => $estado,
         'servicio' => Servicio::all()->random()->id,
-        'accesorios' => rand(0, 1) ?  array_rand(['Cargador', 'Funda', 'Teclado', 'Monitor']) : '',
+        'accesorios' => rand(0, 1) ? array_rand(['Cargador', 'Funda', 'Teclado', 'Monitor']) : '',
         'observaciones' => rand(0, 1) ? array_rand(['No prende', 'fuente dañada', 'tiene contraseña', 'formatear']) : '',
         'garantia' => rand(0,1),
     ];

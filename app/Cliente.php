@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Orden;
 use App\Traits\Encryptable;
+use App\Traits\GetMulipleAttributes;
 
 class Cliente extends Model
 {
-    use Encryptable;
+    use Encryptable, GetMulipleAttributes;
 
     protected $encryptable = [
         'nombre', 'apellidos', 'telefono', 'RFC',

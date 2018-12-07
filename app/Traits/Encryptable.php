@@ -67,4 +67,12 @@ trait Encryptable
         }
         return parent::setAttribute($key, $value);
     }
+
+    public function campos($campos = null) {
+        $x = new \stdClass();
+        foreach ($campos as $campo) {
+            $x->$campo = $this->getAttribute($campo);
+        }
+        return $x;
+    }
 }
