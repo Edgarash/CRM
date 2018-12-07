@@ -1,8 +1,16 @@
 @extends('layouts.plane')
 
 
-
+<style>
+    .logo{
+        transition: all .2s ease-in-out;
+    }
+    .logo:hover{
+    transform: scale(1.1); 
+    }
+    </style>
 @section('body')
+
 <div id="wrapper">
 
     <!-- Navigation -->
@@ -14,7 +22,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('/') }}"><img src="/images/logo2.png" alt="Microsistemas" srcset=""
+            <a class="navbar-brand" href="{{ route('/') }}">
+                <img class="logo" src="/images/logo2.png" alt="Microsistemas" srcset=""
                     style="width:220px;height:40px;top:-8px;position:relative"></a>
         </div>
         <!-- /.navbar-header -->
@@ -158,7 +167,7 @@
                 <!-- /.dropdown-tasks -->
             </li> --}}
             <!-- /.dropdown -->
-            <li class="dropdown">
+           <!-- <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
@@ -246,7 +255,7 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li class="sidebar-search">
+                   <!-- <li class="sidebar-search">
                         <div class="input-group custom-search-form">
                             <input type="text" class="form-control" placeholder="Search...">
                             <span class="input-group-btn">
@@ -256,7 +265,7 @@
                             </span>
                         </div>
                         <!-- /input-group -->
-                    </li>
+                    <li>
                     <li {{ (Request::is('/') ? 'class="active"' : '') }}>
                         <a href="{{ url ('/') }}"><i class="fa fa-home fa-fw"></i> Inicio</a>
                     </li>
@@ -348,9 +357,63 @@
         </div>
         @yield('section')
         <!-- /#page-wrapper -->
+        
     </div>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
         @csrf
     </form>
 </div>
+
+<!--<footer class="page-footer font-small blue pt-4">
+    <p class="text-center">Microsistemas Californianos S.A. de C.V. Isabel La Católica, Zona Central, 23000, La Paz, B.C.S.</p>
+    <p class="text-center"></p>
+</footer>-->
+<!-- Footer -->
+<!-- Footer -->
+<footer class="page-footer font-small azulito pt-4 fixed-bottom">
+
+    <!-- Footer Text -->
+    <div class="container-fluid text-center text-md-center fixed-bottom ">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mt-md-0 mt-3 text-center">
+
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold">Microsistemas Californianos</h5>
+          <p>Microsistemas Californianos, S. A. de C. V. es una empresa dedicada a las ciencias computacionales desde la comercialización de Equipos de Computo y accesorios, hasta la investigación y desarrollo de programas de punto de venta.</p>
+
+        </div>
+        <!-- Grid column -->
+
+        <hr class="clearfix w-100 d-md-none pb-3">
+
+        <!-- Grid column -->
+        <div class="col-md-6 mb-md-0 mb-3 text-center">
+
+          <!-- Content -->
+          <h5 class="text-uppercase font-weight-bold">Contacto</h5>
+          <p><i class="fa fa-map-marker"></i> Isabel La Católica, Zona Central, 23000, La Paz, B.C.S.</p>
+          <p><i class="fa fa-phone"></i> (612)122 83 44 </p>
+          <p><i class="fa fa-envelope-o"></i> ventas@miscrosis.com.mx </p>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+    <!-- Footer Text -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">Microsistemas Californianos S.A de C.V © 2018 Copyright:
+      <a href="http://www.microsis.com.mx/webmicro/inicio/index.html"> microsis.com.mx</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+
 @stop

@@ -1,12 +1,19 @@
-
+@import '_colors';
 // Body
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
+$font-family-sans-serif: "Nunito",
+sans-serif;
 $font-size-base: 0.9rem;
+$font-small: .9rem !default;
 $line-height-base: 1.6;
-
+$white-base: #fff !default;
+$medium-screen: 992px !default;
+// Footers
+$footer-copyright-color: rgba($white-base, .6) !default;
+$footer-copyright-bg-color: rgba($black-base, .2) !default;
+$footer-font-size: .9rem !default;
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;

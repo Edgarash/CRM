@@ -54,10 +54,9 @@
                 <th class="col-sm-1">Categoría</th>
                 <th class="col-sm-1">Marca</th>
                 <th class="col-sm-1">Modelo</th>
-                <th class="col-sm-2">Estado</th>
+                <th class="col-sm-1">Estado</th>
                 <th class="col-sm-2 text-center">Fecha de Ingreso</th>
                 <th class="col-sm-2 text-center">Fecha de Terminado</th>
-
             </tr>
         </thead>
         <tbody>
@@ -66,7 +65,7 @@
                     <td class="text-center">{{ $equipo->id }}</td>
                     <td>{{($emp = App\Empleado::find($equipo->empleado_repara)) != null ? $emp->getFullName() : ''}}</td>
                     <!--<td>$equipo->categoria</td>-->
-                    <td>Laptop</td>
+                    <td>{{ App\Equipo::find($equipo->equipo)->descripcion }}</td>
                     <td>{{ App\Marca::find(App\Equipo::find($equipo->equipo)->marca)->nombre }}</td>
                     <td>{{ App\Equipo::find($equipo->equipo)->modelo }}</td>
                     <td>{{ App\Estado::find($equipo->estado)->estado}}</td>
@@ -89,16 +88,14 @@
              'fechaInicio', 'fechaFinal'
         ))->render() !!}
     </div>
-    <!--
     <div class="form-group col-sm-2">
-        <form id="formReporte" method="post" action="{{route('ReporteProductividad-Reporte')}}" target="_blank">
+        <form id="formReporte" method="post" action="{{route('ReporteEquiposEstados-Reporte')}}" target="_blank">
             @csrf
             <input type="hidden" name="selEstado" value="{{$selEstado}}">
             <input type="hidden" name="fechaInicio" value="{{$fechaInicio}}">
             <input type="hidden" name="fechaFinal" value="{{$fechaFinal}}">
-            <button name="reporte" type="submit"  class="btn btn-primary pull-right" style="margin:20px 0;">Ver Reporte <i class="fa fa-file-text-o fa-fw"></i></button>
+            <button name="reporte" type="submit"  class="btn btn-primary pull-right" style="margin:30px 0;">Ver Reporte <i class="fa fa-file-text-o fa-fw"></i></button>
         </form>
     </div>
-    -->
 </div>
 @stop

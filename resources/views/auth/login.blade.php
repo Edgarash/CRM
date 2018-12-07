@@ -1,24 +1,54 @@
 @extends('layouts.app')
     <script src='https://www.google.com/recaptcha/api.js'></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        #user-rotate {
+            /* border: 1px solid black; */
+            margin-bottom: 20px;
+        }
+
+        .contorno {
+            margin: auto;
+            width: 8em;
+            border: 3px solid #ced4da;
+            border-radius: 50%;
+        }
+
+        .fa.fa-user {
+            animation: girar 1s 1s infinite linear ;
+            padding: .3em;
+        }
+
+        @keyframes girar {
+            100% {
+                transform: rotateY(180deg);
+            }
+        }
+    </style>
 	 {!! NoCaptcha::renderJs() !!}
 @section('content')
 <div class="container">
     <div class="row ">
-        <div class="col-md-6">
+        <div class="col-lg-10 offset-lg-1">
             <div class="card">
                 <div class="card-header">{{ __('Iniciar sesión') }}</div>
 
                 <div class="card-body">
+                    <div id="user-rotate" class="text-center" style="color:#3F77BC">
+                        <div class="contorno">
+                            <i class="fa fa-5x fa-user"></i>
+                        </div>
+                    </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
                             
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Correo electrónco') }}</label>
+                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -32,7 +62,7 @@
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -89,20 +119,6 @@
                 </div>
             </div>          
         </div>    
-        <div class="col-md-6">
-            <div>
-                <div class="col-md-12 banner-sec">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        
-                    </div>
-                </div>
-            </div>  
-        </div>
     </div>
 </div>
     

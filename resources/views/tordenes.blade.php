@@ -7,10 +7,10 @@
         <div class="panel-body">
             {!! Form::open(['route'=> 'ReporteOrdenes', 'method' => 'GET', 'class'=>'navbar-form navbar-left pull-right']) !!}
             <div class="form-group">
-                {!!Form::text('cliente',null,['class'=>'form-control', 'placeholder' => 'Nombre del cliente']) !!}
-                {!!Form::text('id',null,['class'=>'form-control', 'placeholder' => 'ID orden']) !!}
+                {!!Form::text('cliente',null,['class'=>'form-control', 'placeholder' => 'Nombre del cliente', 'style'=>'margin:5px']) !!}
+                {!!Form::text('id',null,['class'=>'form-control', 'placeholder' => 'ID orden', 'style'=>'margin:5px']) !!}
             </div>
-            <button type="submit" class="btn btn-default btn-primary">Buscar</button>
+            <button type="submit" class="btn btn-default btn-primary  pull-right" style="margin:5px">Buscar</button>
             {!!Form::close()!!}
         </div>
 
@@ -37,8 +37,6 @@
                     </td>
                 </tr>
                 @endforeach
-
-
             </tbody>
 
         </table>
