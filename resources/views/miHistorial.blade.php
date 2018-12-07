@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 @section('title', 'Principal')
-@section('page_heading','Te mostramos tu historial')
+@section('page_heading','Equipos que cambiarón de estado')
 @section('section')
 <div class="row">
     <div class="col-sm-12">

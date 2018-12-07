@@ -25,7 +25,8 @@ class TestController extends Controller
     public function ordenes()
     {
         $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
-        return view('misOrdenes')->with(compact('ord'));
+        $detalles = DetallesOrden::all();
+        return view('misOrdenes')->with(compact('ord'))->with(compact('detalles'));
     }
 
     public function miHist()
@@ -38,7 +39,8 @@ class TestController extends Controller
     public function cargarAuto()
     {
         $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
-        return view('autorizaciones')->with(compact('ord'));
+        $detalles = DetallesOrden::all();
+        return view('autorizaciones')->with(compact('ord'))->with(compact('detalles'));
     }
 
     public function cargarCalificaciones()
@@ -52,4 +54,10 @@ class TestController extends Controller
         $detalles = DetallesOrden::where('id', $id)->get();
         return view('detallesOrden')->with(compact('detalles'));
     }
+
+    // public function autorizarOrden($id){
+    //     $detalles = DetallesOrden::where('id', $id)->get();
+    //     $detalles 
+    //     return ;
+    // }
 }

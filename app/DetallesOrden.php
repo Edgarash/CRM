@@ -27,10 +27,16 @@ class DetallesOrden extends Model
         return $this->belongsTo(Estado::class, 'estado');
     }
 
+
+    public function getEstados()
+    {
+        return $this->hasMany(Estado::class, 'estado');
+    }
+
     public function getServicio()
     {
         return $this->belongsTo(Servicio::class, 'servicio');
-    }
+    } 
 
     function getEmpleadoRepara() {
         return $this->belongsTo(Empleado::class, 'empleado_repara');

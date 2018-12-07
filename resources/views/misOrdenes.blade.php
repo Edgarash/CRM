@@ -17,7 +17,7 @@
 @endif
 	<div class="row">
 		<div class="col-sm-12">
-			@section ('cotable_panel_title','Ultimas Ordenes')
+			@section ('cotable_panel_title','Ordenes Autorizadas')
 			@section ('cotable_panel_body')
 			<table class="table table-condensed table-striped table-bordered table-hover">
             <thead>
@@ -25,19 +25,24 @@
                     <th class="align-middle col-xs-1">No. Orden</th>
                     <th class="align-middle col-xs-3">Atendió</th>
                     <th class="align-middle col-xs-2">Ingresó el día</th>
-                    <th class="align-middle col-xs-1 text-center">Ver Detalles</th>
+                    <th class="align-middle col-xs-1 text-center">Ver detalles</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($ord as $orden)
-                <tr id="/Orden/{{$orden->id}}">
-                    <td class="align-middle text-center">{{$orden->id}}</td>
-                    <td class="align-middle">{{$orden->getEmpleadoRecibe->getFullName()}}</td>
-                    <td class="align-middle">{{$orden->fecha_ingreso}}</td>
-					<td class="text-center">
-                        <a href="{{ route('Detalle', [$orden->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-2x fa-th-list"></i></a>
-                    </td>
-                </tr>
+					@foreach($detalles as $detalle)
+						@if( ($detalle->id == $orden->id) && ($detalle->estado != 3) )
+							<tr id="/Orden/{{$orden->id}}">
+								<td class="align-middle text-center">{{$orden->id}}</td>
+								<td class="align-middle">{{$orden->getEmpleadoRecibe->getFullName()}}</td>
+								<td class="align-middle">{{$orden->fecha_ingreso}}</td>
+								<td class="text-center">
+									<a href="{{ route('Detalle', [$detalle->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-2x fa-th-list"></i></a>
+								</td>
+							</tr>
+							@elseif($detalle->id != $orden->id )
+						@endif
+					@endforeach
                 @endforeach
             </tbody>
         </table>			
@@ -133,11 +138,11 @@
 	</div>
 	</div> 
 
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 				<div class="modal-header">
-					<h4 class="modal-title" id="exampleModalLabel">Detalle de orden</h4>
+					<h4 class="modal-title" id="exampleModalLabel">Cambio de estado</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 					</button>
@@ -147,10 +152,10 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+					<a href="{{route('Detalle',[1])}}"><button type="button" class="btn btn-primary">Ver los detalles</button></a>
 				</div>
 				</div>
 			</div>
-		</div>
+			</div>
 
 @stop
