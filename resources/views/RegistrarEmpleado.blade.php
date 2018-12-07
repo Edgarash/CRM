@@ -90,7 +90,7 @@
                                 <button type="submit" class="btn btn-success">
                                     {{ __('Registrar') }}
                                 </button>
-                                <a href="{{route('Empleado')}}" class="btn btn-danger">Cancelar</a>
+                                <a href="{{route('Empleados')}}" class="btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </form>
