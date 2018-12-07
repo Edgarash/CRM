@@ -298,7 +298,42 @@
                                 <a href="{{ route('Fallas') }}">Fallas</a>
                             </li>
                         </ul>
-                        <!-- /.nav-second-level -->
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Empleados')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Empleados') }}">Empleados</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Productos')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Productos') }}">Productos</a>
+                            </li>
+                        </ul>
+                        
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Equipos')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Equipos') }}">Equipos</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Marcas')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Marcas') }}">Marcas</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Estados')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Estados') }}">Estados</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('Servicios')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('Servicios') }}">Servicios</a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-second-level">
+                            <li {{ (Request::is(route('RegistrarEmpleado')) ? 'class="active"' : '') }}>
+                                <a href="{{ route('RegistrarEmpleado') }}">Registrar Empleado</a>
+                            </li>
+                        </ul>
                     </li>
                     @else()
 
