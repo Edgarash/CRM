@@ -1,21 +1,43 @@
-$(document).ready(function() {
-    $('#clienteid').on('input', function() {
+$(document).ready(function () {
+    $('#clienteid').on('input', function () {
         var id = this.value;
         if (id != "") {
             var csrf = $('input[name="_token"]').val();
             $.ajax({
                 url: '/Ordenes/Registrar/Cliente',
-                data: {id:id},
+                data: {
+                    id: id
+                },
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': csrf
                 },
-                success: function(data) {
-                    console.log(JSON.parse(data));
+                success: function (data) {
+                    var response = JSON.parse(data);
+                    if (response.code == 1) {
+                        var cliente = JSON.parse(response.message);
+                        limpiarCliente();
+                        $('#clientename').val(cliente.nombre+' '+cliente.apellidos);
+                        $('#clienteRFC').val(cliente.RFC);
+                        $('#clienteemail').val(cliente.email);
+                        $('#clientedireccion').val(
+                            'Calle: '+cliente.calle+'\nCol: '+cliente.colonia+'\nCiudad: '+cliente.ciudad+'\nCP: '+cliente.cp+'\nREF: '+cliente.referencia
+                        );
+                    } else {
+                        limpiarCliente();
+                        $('#clientename').css('color', 'red');
+                        $('#clientename').val('NO EXISTE');
+                    }
                 }
             });
         } else {
-            $('#clientename, #clienteRFC').val('');
+            limpiarCliente();
         }
     });
+
+    function limpiarCliente() {
+        $('#clientename').css('color', '#555555');
+        $('[data-cliente=datos]').val('');
+        // $('#clientename, #clienteRFC, #clienteemail, #clientedireccion').val('');
+    }
 });

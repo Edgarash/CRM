@@ -19,12 +19,15 @@ class OrdenesController extends Controller
     }
 
     function Registrar() {
-        return view('ordenes.registrar');
+        return view('ordenes.registrar-ordenes');
     }
 
     function getCliente() {
         if ($id = request()->get('id'))  {
-            if ($cliente = Cliente::select(['nombre', 'apellidos'])->where('id', $id)->first()) {
+            if ($cliente = Cliente::select([
+                'nombre', 'apellidos', 'RFC', 'email', 'colonia',
+                'cp', 'calle', 'referencia', 'ciudad'
+            ])->where('id', $id)->first()) {
                 return $this->AjaxResponse($cliente);
             } else {
                 return 'false';

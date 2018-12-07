@@ -17,7 +17,7 @@
                     <td class="align-middle">{{$cliente->email}}</td>
                     <td class="text-center">
                         <button class="btn btn-primary" data-toggle="tooltip" title="Seleccionar {{$cliente->nombre}}"
-                            data-placement="left"><i class="fa fa-2x fa-check-circle"></i></button>
+                            data-placement="left" data-cliente="{{$cliente->id}}"><i class="fa fa-2x fa-check-circle"></i></button>
                     </td>
                 </tr>
                 @empty
