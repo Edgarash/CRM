@@ -11,7 +11,32 @@ use App\Servicio;
 
 class DetallesOrden extends Model
 {
+    public function getId()
+    {
+        return $this->id;
+    }
+
     protected $table = 'detalles_ordenes';
+
+    public function getEquipo(){
+        return $this->belongsTo(Equipo::Class, 'equipo');
+    }
+
+    public function getEstado()
+    {
+        return $this->belongsTo(Estado::class, 'estado');
+    }
+
+
+    public function getEstados()
+    {
+        return $this->hasMany(Estado::class, 'estado');
+    }
+
+    public function getServicio()
+    {
+        return $this->belongsTo(Servicio::class, 'servicio');
+    } 
 
     function getEmpleadoRepara() {
         return $this->belongsTo(Empleado::class, 'empleado_repara');
@@ -19,22 +44,6 @@ class DetallesOrden extends Model
     
     function getEmpleadoEntrega() {
         return $this->belongsTo(Empleado::class, 'empleado_entrega');
-    }
-
-    function equipo() {
-        return $this->belongsTo(DetallesOrden::class, 'equipo');
-    }
-    
-    function getNombreEquipo() {
-        return $this->belongsTo(Equipo::class, 'equipo');
-    }
-
-    function getEstado() {
-        return $this->belongsTo(Estado::class, 'estado');
-    }
-
-    function getServicio() {
-        return $this->belongsTo(Servicio::class, 'servicio'); 
     }
 
     function scopeTecnico($query, $tecnico) {

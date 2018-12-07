@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Orden;
 use App\DetallesOrden;
+use Illuminate\Support\Facades\Auth;
+use App\Equipo;
 
 class TestController extends Controller
 {
@@ -22,35 +24,40 @@ class TestController extends Controller
 
     public function ordenes()
     {
-        $ord = Orden::where('cliente', 8)->get();
-        return view('misOrdenes')->with(compact('ord'));
+        $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
+        $detalles = DetallesOrden::all();
+        return view('misOrdenes')->with(compact('ord'))->with(compact('detalles'));
     }
 
     public function miHist()
     {
-        return view('miHistorial');
-    }
-
-    public function detalles(){//listado
-        return ('');
+        $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
+        $detalles = DetallesOrden::all();
+        return view('miHistorial')->with(compact('ord'))->with(compact('detalles'));
     }
 
     public function cargarAuto()
     {
-        $ord = Orden::where('cliente', 8)->get();
-        return view('autorizaciones')->with(compact('ord'));
+        $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
+        $detalles = DetallesOrden::all();
+        return view('autorizaciones')->with(compact('ord'))->with(compact('detalles'));
     }
+
     public function cargarCalificaciones()
     {
-        $ord = Orden::where('cliente', 8)->get();
+        $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
         return view('calificarServicio')->with(compact('ord'));
     }
 
     public function cargarDetalles($id)
     {
-
-        $detalle = DetallesOrden::where('id', 1)->get();
-        
-        return view('detallesOrden')->with(compact('detalle'));
+        $detalles = DetallesOrden::where('id', $id)->get();
+        return view('detallesOrden')->with(compact('detalles'));
     }
+
+    // public function autorizarOrden($id){
+    //     $detalles = DetallesOrden::where('id', $id)->get();
+    //     $detalles 
+    //     return ;
+    // }
 }

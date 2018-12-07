@@ -11,8 +11,7 @@ class UsersSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        
+    {       
         $usuarios = [
             [
                 'email' => 'admin@microsistemas.com',
@@ -31,6 +30,27 @@ class UsersSeeder extends Seeder
             [
                 'email' => 'cliente@cliente.com',
                 'password' => bcrypt('cliente'),
+                'empleado' => 0,
+                'admin' => 0,
+                'activo' => 1
+            ],
+            [
+                'email' => 'manuelillo.d.soporte@gmail.com',
+                'password' => bcrypt('abc123'),
+                'empleado' => 1,
+                'admin' => 0,
+                'activo' => 1
+            ],
+            [
+                'email' => 'mgOsuna95@gmail.com',
+                'password' => bcrypt('123456'),
+                'empleado' => 0,
+                'admin' => 0,
+                'activo' => 1
+            ],
+            [
+                'email' => 'manue_g95@live.com',
+                'password' => bcrypt('123456'),
                 'empleado' => 0,
                 'admin' => 0,
                 'activo' => 1
