@@ -124,6 +124,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'encryption' => 'md5',
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

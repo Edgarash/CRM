@@ -71,4 +71,13 @@ class Orden extends Model
             $query->where('id', $id);
         }
     }
+
+    function scopeEntreFechasIngreso($query, $fecha1, $fecha2) {
+        if (trim($fecha1) && trim($fecha2)) {
+            return $query->where([
+                ['fecha_ingreso', '>=', $fecha1.' 00:00:00'],
+                ['fecha_ingreso', '<=', $fecha2.' 23:59:59']
+            ]);
+        }
+    }
 }

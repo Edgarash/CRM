@@ -122,7 +122,7 @@ class ReporteOrden extends ReporteBase {
 
          // Textos
          $this->Ln();
-         $this->Cell(50, 6, 'Equipo', 1, 0, 'C', 1);
+         $this->Cell(50, 6, utf8_decode('Categoría'), 1, 0, 'C', 1);
          // Textos
          $this->Cell(30, 6, 'Marca', 1, 0, 'C', 1);
          // Textos
@@ -132,7 +132,7 @@ class ReporteOrden extends ReporteBase {
          $this->Ln();
         // Textos
         $this->SetFont('Century Gothic', '', 12);
-        $this->Cell(50, 6, 'LAPTOP', 1, 0, 'C', 0);
+        $this->Cell(50, 6,$equipo->descripcion, 1, 0, 'C', 0);
         // Textos
         $this->Cell(30, 6, utf8_decode(Marca::find($equipo->marca)->nombre), 1, 0, 'C', 0);
         // Textos

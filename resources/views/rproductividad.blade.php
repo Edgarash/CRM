@@ -62,7 +62,7 @@
                 <th class="col-sm-1 text-center">ID Orden</th>
                 <th class="col-sm-3">Técnico</th>
                 <th class="col-sm-2">Categoría</th>
-                <th class="col-sm-2">Marca</th>
+                <th class="col-sm-1">Marca</th>
                 <th class="col-sm-1">Modelo</th>
                 <th class="col-sm-1">Estado</th>
                 <th class="col-sm-2 text-center">Fecha de Reparación</th>
@@ -74,7 +74,7 @@
                     <td class="text-center">{{ $equipo->id }}</td>
                     <td>{{App\Empleado::find($equipo->empleado_repara)->getFullName()}}</td>
                     <!--<td>$equipo->categoria</td>-->
-                    <td>Laptop</td>
+                    <td>{{ App\Equipo::find($equipo->equipo)->descripcion }}</td>
                     <td>{{ App\Marca::find(App\Equipo::find($equipo->equipo)->marca)->nombre }}</td>
                     <td>{{ App\Equipo::find($equipo->equipo)->modelo }}</td>
                     <td>{{ App\Estado::find($equipo->estado)->estado}}</td>

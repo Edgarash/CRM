@@ -8,10 +8,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Orden;
 use App\Sucursal;
 use App\Notifications\ResetPasswordNotification;
+use App\Traits\Encryptable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Encryptable;
+    protected $encryptable = [
+
+    ];
 
     /**
      * The attributes that are mass assignable.
