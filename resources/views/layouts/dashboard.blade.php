@@ -304,43 +304,38 @@
                         <a href="#"><i class="fa fa-table fa-fw"></i> Catálogos<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Fallas')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Fallas') }}">Fallas</a>
+                                <a href="{{ route('Fallas') }}"><i class="fa fa-cog fa-fw"></i>Fallas</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Empleados')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Empleados') }}">Empleados</a>
-                            </li>
-                        </ul>
-                        <ul class="nav nav-second-level">
-                            <li {{ (Request::is(route('Productos')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Productos') }}">Productos</a>
+                                <a href="{{ route('Empleados') }}"><i class="fa fa-user fa-fw"></i>Empleados</a>
                             </li>
                         </ul>
                         
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Equipos')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Equipos') }}">Equipos</a>
+                                <a href="{{ route('Equipos') }}"><i class ="fa fa-desktop fa-fw"></i>Equipos</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Marcas')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Marcas') }}">Marcas</a>
+                                <a href="{{ route('Marcas') }}"><i class="fa fa-square fa-fw"></i>Marcas</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Estados')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Estados') }}">Estados</a>
+                                <a href="{{ route('Estados') }}"><i class="fa fa-cogs fa-fw"></i>Estados</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('Servicios')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('Servicios') }}">Servicios</a>
+                                <a href="{{ route('Servicios') }}"><i class="fa fa-steam fa-fw"></i>Servicios</a>
                             </li>
                         </ul>
                         <ul class="nav nav-second-level">
                             <li {{ (Request::is(route('RegistrarEmpleado')) ? 'class="active"' : '') }}>
-                                <a href="{{ route('RegistrarEmpleado') }}">Registrar Empleado</a>
+                                <a href="{{ route('RegistrarEmpleado') }}"><i class="fa fa-edit fa-fw"></i>Registrar Empleado</a>
                             </li>
                         </ul>
                     </li>
