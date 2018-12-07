@@ -316,15 +316,10 @@
                         <ul class="nav nav-second-level">
                             <li>
                             <li {{ (Request::is('/misOrdenes') ? 'class="active"' : '') }}>
-                                <a class="fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes <span class="fa arrow"></span></a>
+                                <a class="fa fa-edit" href="{{ url ('misOrdenes' ) }}"> Mis Ordenes</a>
 
                             </li>
 
-                            <ul class="nav nav-third-level">
-                                <li>
-                                    <a class="fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de consultas</a>
-                                </li>
-                            </ul>
 
                             <li>
                                 <a class="fa fa-history" href="{{ url ('miHistorial' ) }}"> Historial de Modificaciones</a>

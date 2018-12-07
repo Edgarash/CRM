@@ -11,6 +11,11 @@ use App\Servicio;
 
 class DetallesOrden extends Model
 {
+    public function getId()
+    {
+        return $this->id;
+    }
+
     protected $table = 'detalles_ordenes';
 
     public function getEquipo(){

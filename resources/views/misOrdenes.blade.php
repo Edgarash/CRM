@@ -6,14 +6,7 @@
 @section('section')
 @if (App\Orden::count() > 0)
 {!! csrf_field() !!}
-<div class="input-group custom-search-form col-sm-4">
-	<input type="text" class="form-control" placeholder="Filtrar">
-	<span class="input-group-btn">
-		<button class="btn btn-default" type="button">
-			<i class="fa fa-search"></i>
-		</button>
-	</span>
-</div><br>
+
 <div class="row">
     <div class="col-sm-12">
         
@@ -42,7 +35,7 @@
                     <td class="align-middle">{{$orden->getEmpleadoRecibe->getFullName()}}</td>
                     <td class="align-middle">{{$orden->fecha_ingreso}}</td>
 					<td class="text-center">
-                        <a href="{{ route('Detalle',[$orden->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-2x fa-th-list"></i></a>
+                        <a href="{{ route('Detalle', [$orden->id]) }}" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-2x fa-th-list"></i></a>
                     </td>
                 </tr>
                 @endforeach

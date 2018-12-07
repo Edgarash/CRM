@@ -14,6 +14,11 @@ class Orden extends Model
     protected $table = "ordenes";
     //
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getCliente() {
         return $this->belongsTo(Cliente::class, 'cliente');
     }

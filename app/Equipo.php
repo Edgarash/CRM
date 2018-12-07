@@ -15,5 +15,10 @@ class Equipo extends Model
     public function getCliente(){
         return $this->belongsTo(Cliente::class, 'cliente');
     }
+
+    public function getDetalleOrden()
+    {
+        return $this->belongsTo(DetallesOrden::class, 'id');
+    }
     
 }

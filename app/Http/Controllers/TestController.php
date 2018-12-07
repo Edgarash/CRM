@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Orden;
 use App\DetallesOrden;
 use Illuminate\Support\Facades\Auth;
+use App\Equipo;
 
 class TestController extends Controller
 {
@@ -29,11 +30,9 @@ class TestController extends Controller
 
     public function miHist()
     {
-        return view('miHistorial');
-    }
-
-    public function detalles(){//listado
-        return ('');
+        $ord = Orden::where('cliente', Auth::user()->clientuser_id)->get();
+        $detalles = DetallesOrden::all();
+        return view('miHistorial')->with(compact('ord'))->with(compact('detalles'));
     }
 
     public function cargarAuto()
@@ -50,9 +49,7 @@ class TestController extends Controller
 
     public function cargarDetalles($id)
     {
-
         $detalles = DetallesOrden::where('id', $id)->get();
-        
         return view('detallesOrden')->with(compact('detalles'));
     }
 }
